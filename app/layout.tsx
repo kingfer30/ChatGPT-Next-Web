@@ -6,8 +6,11 @@ import { getClientConfig } from "./config/client";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ChatGPT Next Web",
-  description: "Your personal ChatGPT Chat Bot.",
+  title: "AI果果科技站",
+  description:
+    "OpenAI 接口聚合管理，支持多种渠道包括 Azure, PaLM2, Claude, 阿里通义, 文心一言, 讯飞星火, 智谱 ChatGLM, 360 智脑, OpenAI-SB, API2D, OhMyGPT, AI Proxy, CloseAI等众多平台",
+  keywords:
+    "AI果果, 果果API, ChatGPT, OpenAi接口, 中转, GPT中转分发, API Key中转分发, GPT3.5中转分发, GPT4.0中转分发, 分发平台, 中转平台",
   viewport: {
     width: "device-width",
     initialScale: 1,
@@ -18,7 +21,7 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#151515" },
   ],
   appleWebApp: {
-    title: "ChatGPT Next Web",
+    title: "AI果果科技站",
     statusBarStyle: "default",
   },
 };

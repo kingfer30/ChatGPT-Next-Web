@@ -121,8 +121,13 @@ export function SideBar(props: { className?: string }) {
           AI果果科技
         </div>
         <div className={styles["sidebar-sub-title"]}>
-          <Link to="https://shop.aichat199.com">前往商城</Link> |{" "}
-          <Link to="https://platform.aichat199.com">中转站</Link>
+          <a href="https://shop.aichat199.com" target="_blank">
+            前往商城
+          </a>{" "}
+          |{" "}
+          <a href="https://platform.aichat199.com" target="_blank">
+            中转站
+          </a>
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
