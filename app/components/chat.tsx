@@ -35,6 +35,7 @@ import BottomIcon from "../icons/bottom.svg";
 import StopIcon from "../icons/pause.svg";
 import RobotIcon from "../icons/robot.svg";
 import UploadImgIcon from "../icons/uploadImg.svg";
+import InfoIcon from "../icons/info.svg";
 
 import {
   ChatMessage,
@@ -547,6 +548,24 @@ export function ChatActions(props: {
             showToast(s[0]);
           }}
         />
+      )}
+
+      {showImageTips && (
+        <>
+          <div
+            style={{
+              fontSize: "12px",
+              fontWeight: "normal",
+              display: "flex",
+              alignItems: "center",
+              color: "orange",
+            }}
+          >
+            {" "}
+            <InfoIcon />
+            上传图片的形式会占用较多网络资源, 建议填写图片链接以减少网络响应时间
+          </div>
+        </>
       )}
     </div>
   );
@@ -1339,6 +1358,7 @@ function _Chat() {
               width: "10%",
               alignItems: "flex-end",
             }}
+            className={styles["tooltip"]}
           >
             <IconButton
               icon={<UploadImgIcon />}
