@@ -34,6 +34,7 @@ import AutoIcon from "../icons/auto.svg";
 import BottomIcon from "../icons/bottom.svg";
 import StopIcon from "../icons/pause.svg";
 import RobotIcon from "../icons/robot.svg";
+import UploadImgIcon from "../icons/uploadImg.svg";
 
 import {
   ChatMessage,
@@ -68,6 +69,7 @@ import {
   List,
   ListItem,
   Modal,
+  Popover,
   Selector,
   showConfirm,
   showPrompt,
@@ -1282,6 +1284,25 @@ function _Chat() {
             onSearch("");
           }}
         />
+        <div className={styles["chat-div-img"]}>
+          <input
+            type="text"
+            placeholder={Locale.Chat.imgInput}
+            style={{
+              width: "100%",
+              maxWidth: "unset",
+              textAlign: "left",
+            }}
+            onClick={(e) => e.currentTarget.select()}
+          ></input>
+          <div className={styles.avatar}>
+            <IconButton
+              icon={<UploadImgIcon />}
+              text={Locale.UI.Export}
+              onClick={() => {}}
+            />
+          </div>
+        </div>
         <div className={styles["chat-input-panel-inner"]}>
           <textarea
             ref={inputRef}

@@ -79,6 +79,7 @@ const cn = {
       SaveAs: "存为面具",
     },
     IsContext: "预设提示词",
+    imgInput: "请输入图片链接或单击右侧上传图片文件",
   },
   Export: {
     Title: "分享聊天记录",
