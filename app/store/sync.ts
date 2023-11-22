@@ -73,7 +73,7 @@ export const useSyncStore = createPersistStore(
       const rawContent = await readFromFile();
 
       try {
-        const remoteState = JSON.parse(rawContent) as AppState;
+        const remoteState = JSON.parse(rawContent[0]) as AppState;
         const localState = getLocalAppState();
         mergeAppState(localState, remoteState);
         setLocalAppState(localState);

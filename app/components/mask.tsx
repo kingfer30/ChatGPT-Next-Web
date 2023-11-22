@@ -422,7 +422,7 @@ export function MaskPage() {
   const importFromFile = () => {
     readFromFile().then((content) => {
       try {
-        const importMasks = JSON.parse(content);
+        const importMasks = JSON.parse(content[0]);
         if (Array.isArray(importMasks)) {
           for (const mask of importMasks) {
             if (mask.name) {

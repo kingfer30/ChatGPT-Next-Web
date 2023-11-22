@@ -76,22 +76,41 @@ export async function downloadAs(text: string, filename: string) {
     document.body.removeChild(element);
   }
 }
-export function readFromFile() {
-  return new Promise<string>((res, rej) => {
+export function readFromFile(
+  acceptType = "application/json",
+  readType = "file",
+  multiple = false,
+) {
+  return new Promise<string[]>((res, rej) => {
     const fileInput = document.createElement("input");
     fileInput.type = "file";
-    fileInput.accept = "application/json";
-
+    fileInput.multiple = multiple;
+    fileInput.accept = acceptType;
+    const fileArr: string[] = [];
     fileInput.onchange = (event: any) => {
-      const file = event.target.files[0];
+      const files = event.target.files;
       const fileReader = new FileReader();
-      fileReader.onload = (e: any) => {
-        res(e.target.result);
-      };
-      fileReader.onerror = (e) => rej(e);
-      fileReader.readAsText(file);
+      for (let i = 0; i < files.length; i++) {
+        fileReader.onload = (e: any) => {
+          fileArr.push(e.target.result);
+          if (fileArr.length == files.length) {
+            res(fileArr);
+          }
+        };
+        fileReader.onerror = (e) => rej(e);
+        if (readType == "file") {
+          fileReader.readAsText(files[i]);
+        } else if (readType == "image") {
+          fileReader.readAsDataURL(files[i]);
+        } else if (readType == "array") {
+          fileReader.readAsArrayBuffer(files[i]);
+        } else if (readType == "binary") {
+          fileReader.readAsBinaryString(files[i]);
+        } else {
+          rej("Unsupport ReadType: " + readType);
+        }
+      }
     };
-
     fileInput.click();
   });
 }

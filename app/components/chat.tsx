@@ -54,6 +54,7 @@ import {
   selectOrCopy,
   autoGrowTextArea,
   useMobileScreen,
+  readFromFile,
 } from "../utils";
 
 import dynamic from "next/dynamic";
@@ -1033,6 +1034,22 @@ function _Chat() {
 
   // edit / insert message modal
   const [isEditingMessage, setIsEditingMessage] = useState(false);
+  const [imgInputVal, setImgInputVal] = useState("");
+  const [imageHidden, setImageHidden] = useState(true);
+  const [imageBase64, setImageBase64] = useState("");
+
+  const [disabledImg, setDisabledImg] = useState(false);
+  const importFromFile = () => {
+    readFromFile("image/*", "image", true).then((content) => {
+      try {
+        for (let index = 0; index < content.length; index++) {
+          setImageBase64(content[index]);
+        }
+
+        setImageHidden(false);
+      } catch {}
+    });
+  };
 
   // remember unfinished input
   useEffect(() => {
@@ -1285,21 +1302,49 @@ function _Chat() {
           }}
         />
         <div className={styles["chat-div-img"]}>
-          <input
-            type="text"
-            placeholder={Locale.Chat.imgInput}
+          <div
             style={{
-              width: "100%",
-              maxWidth: "unset",
-              textAlign: "left",
+              width: "90%",
             }}
-            onClick={(e) => e.currentTarget.select()}
-          ></input>
-          <div className={styles.avatar}>
+          >
+            <img
+              src={imageBase64}
+              hidden={imageHidden}
+              style={{ maxWidth: "50px" }}
+            />
+            <input
+              type="text"
+              hidden={!imageHidden}
+              placeholder={Locale.Chat.imgInput}
+              style={{
+                width: "100%",
+                maxWidth: "unset",
+                textAlign: "left",
+              }}
+              value={imgInputVal}
+              onClick={(e) => e.currentTarget.select()}
+              onInput={(e) => {
+                setImgInputVal(e.currentTarget.value);
+                if (e.currentTarget.value != "") {
+                  console.log(1);
+                  setDisabledImg(true);
+                } else {
+                  setDisabledImg(false);
+                }
+              }}
+            ></input>
+          </div>
+          <div
+            style={{
+              width: "10%",
+              alignItems: "flex-end",
+            }}
+          >
             <IconButton
               icon={<UploadImgIcon />}
-              text={Locale.UI.Export}
-              onClick={() => {}}
+              text={Locale.UI.Import}
+              disabled={disabledImg}
+              onClick={() => importFromFile()}
             />
           </div>
         </div>
