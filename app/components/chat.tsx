@@ -35,7 +35,10 @@ import BottomIcon from "../icons/bottom.svg";
 import StopIcon from "../icons/pause.svg";
 import RobotIcon from "../icons/robot.svg";
 import UploadImgIcon from "../icons/uploadImg.svg";
-import InfoIcon from "../icons/info.svg";
+import HdIcon from "../icons/visionHd.svg";
+import StandardIcon from "../icons/visionStandard.svg";
+import RulerIcon from "../icons/ruler.svg";
+import ImgNumIcon from "../icons/imgNum.svg";
 
 import {
   ChatMessage,
@@ -48,6 +51,10 @@ import {
   useAppConfig,
   DEFAULT_TOPIC,
   ModelType,
+  VisionMode,
+  Dalle2Size,
+  Dalle3Size,
+  ImgQuality,
 } from "../store";
 
 import {
@@ -334,7 +341,9 @@ function ChatAction(props: {
   text: string;
   icon: JSX.Element;
   onClick: () => void;
+  alwaysStay?: boolean;
 }) {
+  const { text, icon, alwaysStay = false } = props; // 使用解构赋值，并给alwaysStay一个默认值false
   const iconRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState({
@@ -342,20 +351,31 @@ function ChatAction(props: {
     icon: 16,
   });
 
+  useEffect(() => {
+    if (alwaysStay) {
+      updateWidth(); // 如果alwaysStay为true，组件挂载后就更新宽度
+    }
+  }, [alwaysStay, text]); // 依赖项中包含alwaysStay，确保其值变化时能重新计算宽度
+
   function updateWidth() {
     if (!iconRef.current || !textRef.current) return;
     const getWidth = (dom: HTMLDivElement) => dom.getBoundingClientRect().width;
     const textWidth = getWidth(textRef.current);
-    const iconWidth = getWidth(iconRef.current);
+    let iconWidth = getWidth(iconRef.current);
     setWidth({
       full: textWidth + iconWidth,
       icon: iconWidth,
     });
   }
-
+  // 根据alwaysStay来决定是否添加hover样式
+  const chatActionClass =
+    styles["chat-input-action"] +
+    " " +
+    styles[`${alwaysStay ? "always-stay" : ""}`] +
+    " clickable";
   return (
     <div
-      className={`${styles["chat-input-action"]} clickable`}
+      className={chatActionClass}
       onClick={() => {
         props.onClick();
         setTimeout(updateWidth, 1);
@@ -370,10 +390,10 @@ function ChatAction(props: {
       }
     >
       <div ref={iconRef} className={styles["icon"]}>
-        {props.icon}
+        {icon}
       </div>
       <div className={styles["text"]} ref={textRef}>
-        {props.text}
+        {text}
       </div>
     </div>
   );
@@ -434,13 +454,63 @@ export function ChatActions(props: {
   const stopAll = () => ChatControllerPool.stopAll();
 
   // switch model
-  const currentModel = chatStore.currentSession().mask.modelConfig.model;
+  let currentModel = chatStore.currentSession().mask.modelConfig.model;
+
   const allModels = useAllModels();
   const models = useMemo(
     () => allModels.filter((m) => m.available),
     [allModels],
   );
   const [showModelSelector, setShowModelSelector] = useState(false);
+  const currentVisionMode =
+    chatStore.currentSession().mask.modelConfig.vision_mode || VisionMode.High;
+  const [showVisionMode, setShowVisionMode] = useState(false);
+  function nextVision() {
+    const modes = [VisionMode.Low, VisionMode.High];
+    const i = modes.indexOf(currentVisionMode);
+    const nextIndex = (i + 1) % modes.length;
+    const nextMode = modes[nextIndex];
+    chatStore.updateCurrentSession(
+      (session) => (session.mask.modelConfig.vision_mode = nextMode),
+    );
+  }
+
+  const currentDalle3Mode =
+    chatStore.currentSession().mask.modelConfig.dalle3_quality || ImgQuality.HD;
+  const [showDalle3Mode, setShowDalle3Mode] = useState(false);
+  function nextDalle3Mode() {
+    const modes = [ImgQuality.Standard, ImgQuality.HD];
+    const i = modes.indexOf(currentDalle3Mode);
+    const nextIndex = (i + 1) % modes.length;
+    const nextMode = modes[nextIndex];
+    chatStore.updateCurrentSession(
+      (session) => (session.mask.modelConfig.dalle3_quality = nextMode),
+    );
+  }
+
+  const currentDalle2Size =
+    chatStore.currentSession().mask.modelConfig.dalle2_size || Dalle2Size.High;
+  const dalle2SizeList = Object.entries(Dalle2Size).map(([k, v]) => ({
+    title: v.toString(),
+    value: v,
+  }));
+  const [showDalle2Size, setShowDalle2Size] = useState(false);
+
+  const currentDalle3Size =
+    chatStore.currentSession().mask.modelConfig.dalle3_size || Dalle3Size.Low;
+  const dalle3SizeList = Object.entries(Dalle3Size).map(([k, v]) => ({
+    title: v.toString(),
+    value: v,
+  }));
+  const [showDalle3Size, setShowDalle3Size] = useState(false);
+
+  const currentDalle2Num =
+    chatStore.currentSession().mask.modelConfig.dalle2_num || 1;
+  const dalle2NumList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v) => ({
+    title: v.toString(),
+    value: v,
+  }));
+  const [showDalle2Num, setShowDalle2Num] = useState(false);
 
   useEffect(() => {
     // if current model is not available
@@ -454,7 +524,7 @@ export function ChatActions(props: {
       showToast(nextModel);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentModel, models]);
+  }, [chatStore, currentModel, models]);
 
   return (
     <div className={styles["chat-input-actions"]}>
@@ -529,6 +599,7 @@ export function ChatActions(props: {
         onClick={() => setShowModelSelector(true)}
         text={currentModel}
         icon={<RobotIcon />}
+        alwaysStay={true}
       />
 
       {showModelSelector && (
@@ -541,6 +612,17 @@ export function ChatActions(props: {
           onClose={() => setShowModelSelector(false)}
           onSelection={(s) => {
             if (s.length === 0) return;
+            if (s[0].indexOf("gpt-4-vision") >= 0) {
+              setShowVisionMode(true);
+            } else {
+              setShowVisionMode(false);
+            }
+            if (s[0].indexOf("dall-e-3") >= 0) {
+              setShowDalle3Mode(true);
+            } else {
+              setShowDalle3Mode(false);
+            }
+            currentModel = s[0] as ModelType;
             chatStore.updateCurrentSession((session) => {
               session.mask.modelConfig.model = s[0] as ModelType;
               session.mask.syncGlobalConfig = false;
@@ -550,22 +632,123 @@ export function ChatActions(props: {
         />
       )}
 
-      {showImageTips && (
-        <>
-          <div
-            style={{
-              fontSize: "12px",
-              fontWeight: "normal",
-              display: "flex",
-              alignItems: "center",
-              color: "orange",
-            }}
-          >
-            {" "}
-            <InfoIcon />
-            上传图片的形式会占用较多网络资源, 建议填写图片链接以减少网络响应时间
-          </div>
-        </>
+      {showVisionMode || currentModel.indexOf("gpt-4-vision") >= 0 ? (
+        <ChatAction
+          onClick={nextVision}
+          text={currentVisionMode}
+          alwaysStay={true}
+          icon={
+            <>
+              {currentVisionMode === VisionMode.High ? (
+                <HdIcon />
+              ) : currentVisionMode === VisionMode.Low ? (
+                <StandardIcon />
+              ) : null}
+            </>
+          }
+        />
+      ) : (
+        <></>
+      )}
+
+      {currentModel.indexOf("dall-e-2") >= 0 ? (
+        <ChatAction
+          onClick={() => setShowDalle2Size(true)}
+          text={currentDalle2Size}
+          alwaysStay={true}
+          icon={<RulerIcon />}
+        />
+      ) : (
+        <></>
+      )}
+
+      {showDalle2Size && (
+        <Selector
+          defaultSelectedValue={currentDalle2Size.toString()}
+          items={dalle2SizeList}
+          onClose={() => setShowDalle2Size(false)}
+          onSelection={(s) => {
+            if (s.length === 0) return;
+            chatStore.updateCurrentSession((session) => {
+              session.mask.modelConfig.dalle2_size = s[0] as Dalle2Size;
+              session.mask.syncGlobalConfig = false;
+            });
+            showToast(s[0].toString());
+          }}
+        />
+      )}
+
+      {showDalle3Mode || currentModel.indexOf("dall-e-3") >= 0 ? (
+        <ChatAction
+          onClick={nextDalle3Mode}
+          text={currentDalle3Mode}
+          alwaysStay={true}
+          icon={
+            <>
+              {currentDalle3Mode === ImgQuality.HD ? (
+                <HdIcon />
+              ) : currentDalle3Mode === ImgQuality.Standard ? (
+                <StandardIcon />
+              ) : null}
+            </>
+          }
+        />
+      ) : (
+        <></>
+      )}
+
+      {currentModel.indexOf("dall-e-3") >= 0 ? (
+        <ChatAction
+          onClick={() => setShowDalle3Size(true)}
+          text={currentDalle3Size}
+          alwaysStay={true}
+          icon={<RulerIcon />}
+        />
+      ) : (
+        <></>
+      )}
+
+      {showDalle3Size && (
+        <Selector
+          defaultSelectedValue={currentDalle3Size.toString()}
+          items={dalle3SizeList}
+          onClose={() => setShowDalle3Size(false)}
+          onSelection={(s) => {
+            if (s.length === 0) return;
+            chatStore.updateCurrentSession((session) => {
+              session.mask.modelConfig.dalle3_size = s[0] as Dalle3Size;
+              session.mask.syncGlobalConfig = false;
+            });
+            showToast(s[0].toString());
+          }}
+        />
+      )}
+
+      {showDalle2Num || currentModel.indexOf("dall-e-2") >= 0 ? (
+        <ChatAction
+          onClick={() => setShowDalle2Num(true)}
+          text={currentDalle2Num.toString()}
+          icon={<ImgNumIcon />}
+          alwaysStay={true}
+        />
+      ) : (
+        <></>
+      )}
+
+      {showDalle2Num && (
+        <Selector
+          defaultSelectedValue={currentDalle2Num}
+          items={dalle2NumList}
+          onClose={() => setShowDalle2Num(false)}
+          onSelection={(s) => {
+            if (s.length === 0) return;
+            chatStore.updateCurrentSession((session) => {
+              session.mask.modelConfig.dalle2_num = s[0];
+              session.mask.syncGlobalConfig = false;
+            });
+            showToast(s[0].toString());
+          }}
+        />
       )}
     </div>
   );
@@ -682,6 +865,98 @@ function _Chat() {
     },
   );
 
+  const [visionHidden, setVisionHidden] = useState(true);
+  // switch model
+  let currentModel = chatStore.currentSession().mask.modelConfig.model;
+  useEffect(() => {
+    if (currentModel.indexOf("gpt-4-vision") >= 0) {
+      setVisionHidden(false);
+    } else {
+      setVisionHidden(true);
+    }
+  }, [currentModel]);
+  const [imageHidden, setImageHidden] = useState(true);
+  const [imageBase64, setImageBase64] = useState<string[]>([]);
+  const [disabledImg, setDisabledImg] = useState(false);
+  const [imgInputVal, setImgInputVal] = useState("");
+  const onImgInput = (text: string) => {
+    setImgInputVal(text);
+    if (text != "") {
+      setDisabledImg(true);
+      const urlRegex = /(?:^|\s)((?:https?:\/\/)[^\s]+)/g;
+      const extractedLinks = text.match(urlRegex) || [];
+      const urlList = extractedLinks
+        .filter((link) => link.trim() !== "")
+        .map((link) => link.trim());
+
+      setImageBase64(urlList);
+    } else {
+      setDisabledImg(false);
+      setImageBase64([]);
+    }
+  };
+  const importFromFile = () => {
+    readFromFile("image/*", "image", true).then((content) => {
+      try {
+        setImageBase64(content);
+        setImageHidden(false);
+      } catch {}
+    });
+  };
+
+  const ImageGallery = (props: { base64Images: string[]; hidden: boolean }) => {
+    // 使用useState来维护图片数组的状态
+    const [images, setImages] = useState(props.base64Images);
+
+    if (props.hidden) {
+      return <></>;
+    }
+
+    // 处理移除图片的函数
+    const removeImage = (index: number) => {
+      // 使用filter方法来生成一个移除了指定索引图片的新数组
+      const updatedImages = images.filter((_, i) => i !== index);
+      setImages(updatedImages); // 更新状态
+      setImageBase64(updatedImages);
+      if (updatedImages.length == 0) {
+        setImageHidden(true);
+      }
+    };
+
+    return (
+      <div className={styles["image-gallery"]}>
+        {images.map((base64Image, index) => (
+          <div key={index} className={styles["image-wrapper"]}>
+            <div>
+              <img src={base64Image} alt={`Image ${index}`} />
+            </div>
+            <button
+              onClick={() => removeImage(index)}
+              className={styles["remove-btn"]}
+            >
+              x
+            </button>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  // 用于获取当前选中的图片并返回一个包含这些图片的div
+  const ImageSelectedGallery = (props: { base64Images: string[] }) => {
+    return (
+      <div className={styles["selected-images"]}>
+        {props.base64Images.map((base64Image, index) => (
+          <div key={index} className={styles["selected-image-wrapper"]}>
+            <div>
+              <img src={base64Image} alt={`Selected Image ${index}`} />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(measure, [userInput]);
 
@@ -720,6 +995,7 @@ function _Chat() {
 
   const doSubmit = (userInput: string) => {
     if (userInput.trim() === "") return;
+
     const matchCommand = chatCommands.match(userInput);
     if (matchCommand.matched) {
       setUserInput("");
@@ -728,9 +1004,15 @@ function _Chat() {
       return;
     }
     setIsLoading(true);
-    chatStore.onUserInput(userInput).then(() => setIsLoading(false));
+    chatStore
+      .onUserInput(userInput, imageBase64)
+      .then(() => setIsLoading(false));
     localStorage.setItem(LAST_INPUT_KEY, userInput);
     setUserInput("");
+    setImgInputVal("");
+    setImageBase64([]);
+    setImageHidden(true);
+    setDisabledImg(false);
     setPromptHints([]);
     if (!isMobileScreen) inputRef.current?.focus();
     setAutoScroll(true);
@@ -876,7 +1158,9 @@ function _Chat() {
 
     // resend the message
     setIsLoading(true);
-    chatStore.onUserInput(userMessage.content).then(() => setIsLoading(false));
+    chatStore
+      .onUserInput(userMessage.content, userMessage.ImageContent as string[])
+      .then(() => setIsLoading(false));
     inputRef.current?.focus();
   };
 
@@ -927,12 +1211,14 @@ function _Chat() {
           : [],
       )
       .concat(
-        userInput.length > 0 && config.sendPreviewBubble
+        (userInput.length > 0 || imageBase64.length > 0) &&
+          config.sendPreviewBubble
           ? [
               {
                 ...createMessage({
                   role: "user",
                   content: userInput,
+                  ImageContent: imageBase64,
                 }),
                 preview: true,
               },
@@ -945,6 +1231,7 @@ function _Chat() {
     isLoading,
     session.messages,
     userInput,
+    imageBase64,
   ]);
 
   const [msgRenderIndex, _setMsgRenderIndex] = useState(
@@ -1053,22 +1340,6 @@ function _Chat() {
 
   // edit / insert message modal
   const [isEditingMessage, setIsEditingMessage] = useState(false);
-  const [imgInputVal, setImgInputVal] = useState("");
-  const [imageHidden, setImageHidden] = useState(true);
-  const [imageBase64, setImageBase64] = useState("");
-
-  const [disabledImg, setDisabledImg] = useState(false);
-  const importFromFile = () => {
-    readFromFile("image/*", "image", true).then((content) => {
-      try {
-        for (let index = 0; index < content.length; index++) {
-          setImageBase64(content[index]);
-        }
-
-        setImageHidden(false);
-      } catch {}
-    });
-  };
 
   // remember unfinished input
   useEffect(() => {
@@ -1286,6 +1557,14 @@ function _Chat() {
                       parentRef={scrollRef}
                       defaultShow={i >= messages.length - 6}
                     />
+                    {message.ImageContent != undefined &&
+                    message.ImageContent.length > 0 ? (
+                      <ImageSelectedGallery
+                        base64Images={message.ImageContent}
+                      />
+                    ) : (
+                      <></>
+                    )}
                   </div>
 
                   <div className={styles["chat-message-action-date"]}>
@@ -1320,54 +1599,55 @@ function _Chat() {
             onSearch("");
           }}
         />
-        <div className={styles["chat-div-img"]}>
-          <div
-            style={{
-              width: "90%",
-            }}
-          >
-            <img
-              src={imageBase64}
-              hidden={imageHidden}
-              style={{ maxWidth: "50px" }}
-            />
-            <input
-              type="text"
-              hidden={!imageHidden}
-              placeholder={Locale.Chat.imgInput}
+        {visionHidden ? (
+          <></>
+        ) : (
+          <div className={styles["chat-div-img"]}>
+            <div
               style={{
-                width: "100%",
-                maxWidth: "unset",
-                textAlign: "left",
+                width: "90%",
+                paddingRight: "5px",
               }}
-              value={imgInputVal}
-              onClick={(e) => e.currentTarget.select()}
-              onInput={(e) => {
-                setImgInputVal(e.currentTarget.value);
-                if (e.currentTarget.value != "") {
-                  console.log(1);
-                  setDisabledImg(true);
-                } else {
-                  setDisabledImg(false);
+            >
+              {!imageHidden ? (
+                <ImageGallery
+                  hidden={imageBase64.length == 0}
+                  base64Images={imageBase64}
+                />
+              ) : (
+                <></>
+              )}
+              <textarea
+                className={
+                  styles["chat-input"] + " " + styles["chat-input-img"]
                 }
+                hidden={!imageHidden}
+                placeholder={Locale.Chat.ImgInput}
+                style={{
+                  width: "100%",
+                  maxWidth: "unset",
+                  textAlign: "left",
+                }}
+                value={imgInputVal}
+                onInput={(e) => onImgInput(e.currentTarget.value)}
+              ></textarea>
+            </div>
+            <div
+              style={{
+                width: "10%",
+                alignItems: "flex-end",
               }}
-            ></input>
+              className={styles["tooltip"]}
+            >
+              <IconButton
+                icon={<UploadImgIcon />}
+                text={Locale.UI.Import}
+                disabled={disabledImg}
+                onClick={() => importFromFile()}
+              />
+            </div>
           </div>
-          <div
-            style={{
-              width: "10%",
-              alignItems: "flex-end",
-            }}
-            className={styles["tooltip"]}
-          >
-            <IconButton
-              icon={<UploadImgIcon />}
-              text={Locale.UI.Import}
-              disabled={disabledImg}
-              onClick={() => importFromFile()}
-            />
-          </div>
-        </div>
+        )}
         <div className={styles["chat-input-panel-inner"]}>
           <textarea
             ref={inputRef}

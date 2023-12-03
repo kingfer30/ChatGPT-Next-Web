@@ -139,6 +139,7 @@ const no: PartialLocaleType = {
         "Vennligst lag en fire til fem ords tittel som oppsummerer samtalen vår uten innledning, punktsetting, anførselstegn, punktum, symboler eller tillegg tekst. Fjern innrammende anførselstegn.",
       Summarize:
         "Oppsummer diskusjonen vår kort i 200 ord eller mindre for å bruke som en oppfordring til fremtidig sammenheng.",
+      Draw: "å male",
     },
   },
   Copy: {

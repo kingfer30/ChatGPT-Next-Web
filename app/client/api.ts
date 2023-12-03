@@ -12,6 +12,7 @@ export type ChatModel = ModelType;
 export interface RequestMessage {
   role: MessageRole;
   content: string;
+  ImageContent?: string[];
 }
 
 export interface LLMConfig {

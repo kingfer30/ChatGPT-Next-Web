@@ -40,6 +40,9 @@ const jp: PartialLocaleType = {
       Reset: "リセット",
       SaveAs: "保存",
     },
+    IsContext: "デフォルトのプロンプト単語",
+    ImgInput:
+      "右側のボタンをクリックして画像ファイルをアップロードするか、画像リンク (複数の改行またはスペース) を入力してください。例: https://test.com/1.jpg https://test.com/2.jpg",
   },
   Export: {
     Title: "チャット履歴をMarkdown形式でエクスポート",
@@ -189,6 +192,7 @@ const jp: PartialLocaleType = {
         "4～5文字でこの文章の簡潔な主題を返してください。説明、句読点、感嘆詞、余分なテキストは無しで。もし主題がない場合は、「おしゃべり」を返してください",
       Summarize:
         "あなたとユーザの会話を簡潔にまとめて、後続のコンテキストプロンプトとして使ってください。200字以内に抑えてください。",
+      Draw: "描く",
     },
   },
   Copy: {
@@ -255,6 +259,7 @@ const jp: PartialLocaleType = {
     Close: "閉じる",
     Create: "新規",
     Edit: "編集",
+    Import: "輸入",
   },
   Exporter: {
     Model: "モデル",

@@ -79,7 +79,28 @@ const cn = {
       SaveAs: "存为面具",
     },
     IsContext: "预设提示词",
-    imgInput: "请输入图片链接或单击右侧上传图片文件",
+    ImgInput:
+      "请单击右侧按钮上传图片文件或输入图片链接(多个换行或增加空格), 例如: https://test.com/1.jpg https://test.com/2.jpg",
+    VisionItem: {
+      Low: "低",
+      High: "高",
+    },
+    ImgQuality: {
+      Standard: "标准",
+      HD: "高清",
+    },
+    ImgSize: {
+      Dalle2: {
+        Low: "256x256",
+        Mid: "512x512",
+        High: "1024x1024",
+      },
+      Dalle3: {
+        Low: "1024x1024",
+        Mid: "1024x1792",
+        High: "1792x1024",
+      },
+    },
   },
   Export: {
     Title: "分享聊天记录",
@@ -351,6 +372,7 @@ const cn = {
         "使用四到五个字直接返回这句话的简要主题，不要解释、不要标点、不要语气词、不要多余文本，如果没有主题，请直接返回“闲聊”",
       Summarize:
         "简要总结一下对话内容，用作后续的上下文提示 prompt，控制在 200 字以内",
+      Draw: "绘图",
     },
   },
   Copy: {

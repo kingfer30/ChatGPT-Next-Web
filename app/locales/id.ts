@@ -283,6 +283,7 @@ const id: PartialLocaleType = {
         "Buat judul berisi empat hingga lima kata untuk percakapan kita yang tidak akan disertakan dalam ringkasan percakapan, seperti instruksi, format, kutipan, tanda baca awal, tanda kutip pendahuluan, atau karakter tambahan. Silakan coba dengan kutipan berakhir.",
       Summarize:
         "Buat ringkasan percakapan dalam 200 kata yang akan digunakan sebagai promp di masa depan.",
+      Draw: "Melukis",
     },
   },
   Copy: {

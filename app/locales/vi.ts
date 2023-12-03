@@ -163,6 +163,7 @@ const vi: PartialLocaleType = {
         "Sử dụng 4 đến 5 từ tóm tắt cuộc trò chuyện này mà không có phần mở đầu, dấu chấm câu, dấu ngoặc kép, dấu chấm, ký hiệu hoặc văn bản bổ sung nào. Loại bỏ các dấu ngoặc kép kèm theo.",
       Summarize:
         "Tóm tắt cuộc trò chuyện này một cách ngắn gọn trong 200 từ hoặc ít hơn để sử dụng làm gợi ý cho ngữ cảnh tiếp theo.",
+      Draw: "Vẽ",
     },
   },
   Copy: {

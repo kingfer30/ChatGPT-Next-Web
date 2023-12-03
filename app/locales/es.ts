@@ -167,6 +167,7 @@ const es: PartialLocaleType = {
         "Por favor, genera un título de cuatro a cinco palabras que resuma nuestra conversación sin ningún inicio, puntuación, comillas, puntos, símbolos o texto adicional. Elimina las comillas que lo envuelven.",
       Summarize:
         "Resuma nuestra discusión brevemente en 200 caracteres o menos para usarlo como un recordatorio para futuros contextos.",
+      Draw: "Dibujar",
     },
   },
   Copy: {

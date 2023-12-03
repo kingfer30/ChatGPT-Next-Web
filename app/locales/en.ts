@@ -1,11 +1,11 @@
 import { getClientConfig } from "../config/client";
 import { SubmitKey } from "../store/config";
-import { LocaleType } from "./index";
+import { PartialLocaleType } from "./index";
 
 // if you are adding a new translation, please use PartialLocaleType instead of LocaleType
 
 const isApp = !!getClientConfig()?.isApp;
-const en: LocaleType = {
+const en: PartialLocaleType = {
   WIP: "Coming Soon...",
   Error: {
     Unauthorized: isApp
@@ -81,6 +81,8 @@ const en: LocaleType = {
       SaveAs: "Save as Mask",
     },
     IsContext: "Contextual Prompt",
+    ImgInput:
+      "Please click the button on the right to upload the image file or enter the image link (multiple line breaks or spaces), for example: https://test.com/1.jpg https://test.com/2.jpg",
   },
   Export: {
     Title: "Export Messages",
@@ -356,6 +358,7 @@ const en: LocaleType = {
         "Please generate a four to five word title summarizing our conversation without any lead-in, punctuation, quotation marks, periods, symbols, or additional text. Remove enclosing quotation marks.",
       Summarize:
         "Summarize the discussion briefly in 200 words or less to use as a prompt for future context.",
+      Draw: "Draw",
     },
   },
   Copy: {

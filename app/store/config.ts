@@ -24,6 +24,25 @@ export enum Theme {
   Dark = "dark",
   Light = "light",
 }
+export enum VisionMode {
+  Low = "low",
+  High = "high",
+}
+export enum ImgQuality {
+  Standard = "standard",
+  HD = "hd",
+}
+
+export enum Dalle2Size {
+  Low = "256x256",
+  Mid = "512x512",
+  High = "1024x1024",
+}
+export enum Dalle3Size {
+  Low = "1024x1024",
+  WeightHigh = "1792x1024",
+  HeightHigh = "1024x1792",
+}
 
 export const DEFAULT_CONFIG = {
   lastUpdate: Date.now(), // timestamp, to merge state
@@ -49,7 +68,7 @@ export const DEFAULT_CONFIG = {
     model: "gpt-3.5-turbo" as ModelType,
     temperature: 0.5,
     top_p: 1,
-    max_tokens: 4000,
+    max_tokens: 4096,
     presence_penalty: 0,
     frequency_penalty: 0,
     sendMemory: true,
@@ -57,6 +76,11 @@ export const DEFAULT_CONFIG = {
     compressMessageLengthThreshold: 1000,
     enableInjectSystemPrompts: true,
     template: DEFAULT_INPUT_TEMPLATE,
+    vision_mode: VisionMode.High,
+    dalle2_size: Dalle2Size.High,
+    dalle2_num: 1,
+    dalle3_size: Dalle3Size.Low,
+    dalle3_quality: ImgQuality.HD,
   },
 };
 

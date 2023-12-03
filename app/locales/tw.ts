@@ -34,6 +34,9 @@ const tw: PartialLocaleType = {
       Reset: "重設",
       SaveAs: "另存新檔",
     },
+    IsContext: "預設提示詞",
+    ImgInput:
+      "請點選右側按鈕上傳圖片檔案或輸入圖片連結(多個換行或增加空白), 例如: https://test.com/1.jpg https://test.com/2.jpg",
   },
   Export: {
     Title: "將聊天記錄匯出為 Markdown",
@@ -160,6 +163,7 @@ const tw: PartialLocaleType = {
         "Use the language used by the user (e.g. en for english conversation, zh-hant for chinese conversation, etc.) to generate a title (at most 6 words) summarizing our conversation without any lead-in, quotation marks, preamble like 'Title:', direct text copies, single-word replies, quotation marks, translations, or brackets. Remove enclosing quotation marks. The title should make third-party grasp the essence of the conversation in first sight.",
       Summarize:
         "Use the language used by the user (e.g. en-us for english conversation, zh-hant for chinese conversation, etc.) to summarise the conversation in at most 200 words. The summary will be used as prompt for you to continue the conversation in the future.",
+      Draw: "繪圖",
     },
   },
   Copy: {
@@ -215,6 +219,7 @@ const tw: PartialLocaleType = {
     Close: "關閉",
     Create: "新增",
     Edit: "編輯",
+    Import: "導入",
   },
   Exporter: {
     Model: "模型",

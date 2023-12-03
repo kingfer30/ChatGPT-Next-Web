@@ -166,6 +166,7 @@ const cs: PartialLocaleType = {
         "Vytvořte prosím název o čtyřech až pěti slovech vystihující průběh našeho rozhovoru bez jakýchkoli úvodních slov, interpunkčních znamének, uvozovek, teček, symbolů nebo dalšího textu. Odstraňte uvozovky.",
       Summarize:
         "Krátce shrň naši diskusi v rozsahu do 200 slov a použij ji jako podnět pro budoucí kontext.",
+      Draw: "Kreslit",
     },
   },
   Copy: {

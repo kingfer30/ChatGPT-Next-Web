@@ -1,10 +1,10 @@
 import { SubmitKey } from "../store/config";
-import { LocaleType } from "../locales/index";
+import { PartialLocaleType } from "../locales/index";
 import { getClientConfig } from "../config/client";
 
 const isApp = !!getClientConfig()?.isApp;
 
-const pt: LocaleType = {
+const pt: PartialLocaleType = {
   WIP: "Em breve...",
   Error: {
     Unauthorized: isApp
@@ -80,6 +80,8 @@ const pt: LocaleType = {
       SaveAs: "Salvar como Máscara",
     },
     IsContext: "Prompt Contextual",
+    ImgInput:
+      "Clique no botão à direita para fazer upload do arquivo de imagem ou insira o link da imagem (várias quebras de linha ou espaços), por exemplo: https://test.com/1.jpg https://test.com/2.jpg",
   },
   Export: {
     Title: "Exportar Mensagens",
@@ -358,6 +360,7 @@ const pt: LocaleType = {
         "Por favor, gere um título de quatro a cinco palavras resumindo nossa conversa sem qualquer introdução, pontuação, aspas, períodos, símbolos ou texto adicional. Remova as aspas que o envolvem.",
       Summarize:
         "Resuma a discussão brevemente em 200 palavras ou menos para usar como um prompt para o contexto futuro.",
+      Draw: "Pintura",
     },
   },
   Copy: {

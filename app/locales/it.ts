@@ -167,6 +167,7 @@ const it: PartialLocaleType = {
         "Si prega di generare un titolo di quattro o cinque parole che riassuma la nostra conversazione senza alcuna traccia, punteggiatura, virgolette, punti, simboli o testo aggiuntivo. Rimuovere le virgolette",
       Summarize:
         "Riassumi brevemente la nostra discussione in 200 caratteri o meno per usarla come spunto per una futura conversazione.",
+      Draw: "Disegno",
     },
   },
   Copy: {

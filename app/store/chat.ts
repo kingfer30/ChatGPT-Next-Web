@@ -266,7 +266,7 @@ export const useChatStore = createPersistStore(
         get().summarizeSession();
       },
 
-      async onUserInput(content: string) {
+      async onUserInput(content: string, imageContent: string[]) {
         const session = get().currentSession();
         const modelConfig = session.mask.modelConfig;
 
@@ -276,6 +276,7 @@ export const useChatStore = createPersistStore(
         const userMessage: ChatMessage = createMessage({
           role: "user",
           content: userContent,
+          ImageContent: imageContent,
         });
 
         const botMessage: ChatMessage = createMessage({
@@ -294,6 +295,7 @@ export const useChatStore = createPersistStore(
           const savedUserMessage = {
             ...userMessage,
             content,
+            ImageContent: imageContent,
           };
           session.messages = session.messages.concat([
             savedUserMessage,
@@ -484,25 +486,31 @@ export const useChatStore = createPersistStore(
           session.topic === DEFAULT_TOPIC &&
           countMessages(messages) >= SUMMARIZE_MIN_LEN
         ) {
-          const topicMessages = messages.concat(
-            createMessage({
-              role: "user",
-              content: Locale.Store.Prompt.Topic,
-            }),
-          );
-          api.llm.chat({
-            messages: topicMessages,
-            config: {
-              model: getSummarizeModel(session.mask.modelConfig.model),
-            },
-            onFinish(message) {
-              get().updateCurrentSession(
-                (session) =>
-                  (session.topic =
-                    message.length > 0 ? trimTopic(message) : DEFAULT_TOPIC),
-              );
-            },
-          });
+          if (session.mask.modelConfig.model.indexOf("dall-e") >= 0) {
+            get().updateCurrentSession(
+              (session) => (session.topic = Locale.Store.Prompt.Draw),
+            );
+          } else {
+            const topicMessages = messages.concat(
+              createMessage({
+                role: "user",
+                content: Locale.Store.Prompt.Topic,
+              }),
+            );
+            api.llm.chat({
+              messages: topicMessages,
+              config: {
+                model: getSummarizeModel(session.mask.modelConfig.model),
+              },
+              onFinish(message) {
+                get().updateCurrentSession(
+                  (session) =>
+                    (session.topic =
+                      message.length > 0 ? trimTopic(message) : DEFAULT_TOPIC),
+                );
+              },
+            });
+          }
         }
 
         const modelConfig = session.mask.modelConfig;
@@ -557,7 +565,10 @@ export const useChatStore = createPersistStore(
             },
             onFinish(message) {
               console.log("[Memory] ", message);
-              session.lastSummarizeIndex = lastSummarizeIndex;
+              get().updateCurrentSession((session) => {
+                session.lastSummarizeIndex = lastSummarizeIndex;
+                session.memoryPrompt = message; // Update the memory prompt for stored it in local storage
+              });
             },
             onError(err) {
               console.error("[Summarize] ", err);

@@ -72,6 +72,7 @@ export const OpenaiPath = {
   UsagePath: "dashboard/billing/usage",
   SubsPath: "dashboard/billing/subscription",
   ListModelPath: "v1/models",
+  DallePath: "v1/images/generations",
 };
 
 export const Azure = {
@@ -151,6 +152,14 @@ export const DEFAULT_MODELS = [
   },
   {
     name: "gpt-3.5-turbo-16k-0613",
+    available: true,
+  },
+  {
+    name: "dall-e-2",
+    available: true,
+  },
+  {
+    name: "dall-e-3",
     available: true,
   },
 ] as const;

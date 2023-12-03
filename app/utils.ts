@@ -89,8 +89,8 @@ export function readFromFile(
     const fileArr: string[] = [];
     fileInput.onchange = (event: any) => {
       const files = event.target.files;
-      const fileReader = new FileReader();
       for (let i = 0; i < files.length; i++) {
+        const fileReader = new FileReader();
         fileReader.onload = (e: any) => {
           fileArr.push(e.target.result);
           if (fileArr.length == files.length) {

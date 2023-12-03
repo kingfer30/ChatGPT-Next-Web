@@ -221,6 +221,7 @@ const fr: PartialLocaleType = {
         "Veuillez générer un titre de quatre à cinq mots résumant notre conversation sans introduction, ponctuation, guillemets, points, symboles ou texte supplémentaire. Supprimez les guillemets inclus.",
       Summarize:
         "Résumez brièvement nos discussions en 200 mots ou moins pour les utiliser comme prompt de contexte futur.",
+      Draw: "Dessiner",
     },
   },
   Copy: {
