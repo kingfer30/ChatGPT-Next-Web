@@ -236,7 +236,7 @@ const ru: PartialLocaleType = {
     Close: "Закрыть",
     Create: "Создать",
     Edit: "Редактировать",
-    Import: "Импортировать",
+    Import: "выбирать",
   },
   Exporter: {
     Model: "Модель",
