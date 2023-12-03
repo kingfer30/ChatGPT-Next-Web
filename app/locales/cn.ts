@@ -81,26 +81,6 @@ const cn = {
     IsContext: "预设提示词",
     ImgInput:
       "请单击右侧按钮上传图片文件或输入图片链接(多个换行或增加空格), 例如: https://test.com/1.jpg https://test.com/2.jpg",
-    VisionItem: {
-      Low: "低",
-      High: "高",
-    },
-    ImgQuality: {
-      Standard: "标准",
-      HD: "高清",
-    },
-    ImgSize: {
-      Dalle2: {
-        Low: "256x256",
-        Mid: "512x512",
-        High: "1024x1024",
-      },
-      Dalle3: {
-        Low: "1024x1024",
-        Mid: "1024x1792",
-        High: "1792x1024",
-      },
-    },
   },
   Export: {
     Title: "分享聊天记录",
