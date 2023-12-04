@@ -32,6 +32,7 @@ const bn: PartialLocaleType = {
       PinToastAction: "দেখুন",
       Delete: "মুছে ফেলুন",
       Edit: "সম্পাদন করুন",
+      Shot2code: "HTML কোডের স্ক্রিনশট",
     },
     Commands: {
       new: "নতুন চ্যাট শুরু করুন",
@@ -235,7 +236,7 @@ const bn: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "নতুন সংলাপ",
-    BotHello: "হ্যালো! আজকে আপনাকে কিভাবে সাহায্য করতে পারি?",
+    BotHello: `# AI Guoguo তে স্বাগতম! \r\n- এই সাইটটি dall-e অঙ্কন এবং gpt-4-ভিশন ইমেজ রিকগনিশন প্রয়োগ করেছে। আপনি সরাসরি নীচের মডেলটি স্যুইচ করে এটি ব্যবহার করতে পারেন। \r\n- Image to HTML: [Screenshot Conversion](https://shot2code.aichat199.com/ "স্ক্রিনশট রূপান্তর")\r\n- Purchase API KEY: [AI Guoguo Store](https://shop.aichat199.com/ "AI Guoguo Store")\r\n- আমাদের সাথে যোগাযোগ করুন: QQ গ্রুপ: 511903990\r\n- ব্যবহারের পদ্ধতি\r\n- [![ব্যবহারের জন্য নির্দেশাবলী](/navigation.png)](/navigation.png)`,
     Error: "কিছু নিয়ে ভুল হয়েছে, পরে আবার চেষ্টা করুন।",
     Prompt: {
       History: (content: string) =>

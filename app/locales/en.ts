@@ -44,6 +44,7 @@ const en: PartialLocaleType = {
       PinToastAction: "View",
       Delete: "Delete",
       Edit: "Edit",
+      Shot2code: "Screenshot to HTML Code",
     },
     Commands: {
       new: "Start a new chat",
@@ -349,7 +350,8 @@ const en: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "New Conversation",
-    BotHello: "Hello! How can I assist you today?",
+    BotHello: `# Welcome to AI Guoguo! \r\n- This site has implemented dall-e drawing and gpt-4-vision picture recognition. You can use it by switching the model directly below. \r\n- Image to HTML: [Screenshot Conversion](https://shot2code.aichat199.com/ "Screenshot Conversion") \r\n- Purchase API KEY: [AI Guoguo Store](https://shop.aichat199.com/ "AI Guoguo Store") \r\n- Contact us: QQ group: 511903990 \r\n- How to use
+    [![Instructions](/navigation.png)](/navigation.png)`,
     Error: "Something went wrong, please try again later.",
     Prompt: {
       History: (content: string) =>

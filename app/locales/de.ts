@@ -20,6 +20,7 @@ const de: PartialLocaleType = {
       Stop: "Stop",
       Retry: "Wiederholen",
       Delete: "Delete",
+      Shot2code: "Screenshot zum HTML-Code",
     },
     Rename: "Chat umbenennen",
     Typing: "Tippen...",
@@ -156,7 +157,7 @@ const de: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Neues Gespräch",
-    BotHello: "Hallo! Wie kann ich Ihnen heute helfen?",
+    BotHello: `# Willkommen bei AI Guoguo! \r\n- Diese Seite hat Dall-E-Zeichnung und GPT-4-Vision-Bilderkennung implementiert. Sie können es verwenden, indem Sie das Modell direkt unten wechseln. \r\n- Bild in HTML: [Screenshot-Konvertierung](https://shot2code.aichat199.com/ " Screenshot-Konvertierung")\r\n- API-SCHLÜSSEL kaufen: [AI Guoguo Store](https://shop.aichat199.com/ "AI Guoguo Store")\r\n- Kontaktieren Sie uns: QQ-Gruppe: 511903990\r\n- Verwendungsmethode\r\n- [![Gebrauchsanweisung](/navigation.png)](/navigation.png)`,
     Error:
       "Etwas ist schief gelaufen, bitte versuchen Sie es später noch einmal.",
     Prompt: {

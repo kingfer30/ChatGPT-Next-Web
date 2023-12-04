@@ -20,6 +20,7 @@ const ru: PartialLocaleType = {
       Stop: "Остановить",
       Retry: "Повторить",
       Delete: "Удалить",
+      Shot2code: "Скриншот HTML-кода",
     },
     Rename: "Переименовать чат",
     Typing: "Печатает…",
@@ -161,7 +162,7 @@ const ru: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Новый разговор",
-    BotHello: "Здравствуйте! Как я могу вам помочь сегодня?",
+    BotHello: `# Добро пожаловать в AI Guoguo! \r\n- На этом сайте реализовано рисование dall-e и распознавание изображений gpt-4-vision. Вы можете использовать его, переключив модель непосредственно ниже. \r\n- Изображение в HTML: [Преобразование скриншотов](https://shot2code.aichat199.com/ " Преобразование скриншотов")\r\n- Купить КЛЮЧ API: [Магазин AI Guoguo](https://shop.aichat199.com/ "Магазин AI Guoguo")\r\n- Свяжитесь с нами: группа QQ: 511903990\r\n- Метод использования\r\n- [![Инструкция по использованию](/navigation.png)](/navigation.png)`,
     Error: "Что-то пошло не так. Пожалуйста, попробуйте еще раз позже.",
     Prompt: {
       History: (content: string) =>

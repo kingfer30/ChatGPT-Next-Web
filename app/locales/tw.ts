@@ -19,6 +19,7 @@ const tw: PartialLocaleType = {
       Stop: "停止",
       Retry: "重試",
       Delete: "刪除",
+      Shot2code: "螢幕截圖到 HTML 程式碼",
     },
     Rename: "重新命名對話",
     Typing: "正在輸入…",
@@ -154,7 +155,8 @@ const tw: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "新的對話",
-    BotHello: "請問需要我的協助嗎？",
+    BotHello: `# 歡迎使用AI果果！ \r\n- 本站已實現dall-e畫圖、gpt-4-vision識圖，直接下方切換模型即可使用 \r\n- 圖片轉HTML: [截圖轉碼](https://shot2code.aichat199.com/ "截圖轉碼") \r\n- 購買API KEY: [AI果果店铺](https://shop.aichat199.com/ "AI果果店铺") \r\n- 聯絡我們: QQ群: 511903990 \r\n- 使用方式
+    [![使用说明](/navigation.png)](/navigation.png)`,
     Error: "出錯了，請稍後再嘗試",
     Prompt: {
       History: (content: string) =>

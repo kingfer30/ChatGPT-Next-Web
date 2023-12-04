@@ -20,6 +20,7 @@ const tr: PartialLocaleType = {
       Stop: "Durdur",
       Retry: "Tekrar Dene",
       Delete: "Delete",
+      Shot2code: "HTML Kodunun ekran görüntüsü",
     },
     Rename: "Sohbeti Yeniden Adlandır",
     Typing: "Yazıyor…",
@@ -159,7 +160,7 @@ const tr: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Yeni Konuşma",
-    BotHello: "Merhaba! Size bugün nasıl yardımcı olabilirim?",
+    BotHello: `# AI Guoguo'ya hoş geldiniz! \r\n- Bu site dall-e çizimi ve gpt-4-vision görüntü tanımayı uygulamıştır. Doğrudan aşağıdaki modeli değiştirerek kullanabilirsiniz. \r\n- Resimden HTML'ye: [Ekran Görüntüsü Dönüştürme](https://shot2code.aichat199.com/ " Ekran Görüntüsü Dönüştürme ")\r\n- Satın Alma API ANAHTARI: [AI Guoguo Mağazası](https://shop.aichat199.com/ "AI Guoguo Mağazası")\r\n- Bize ulaşın: QQ grubu: 511903990\r\n- Kullanım yöntemi\r\n- [![Kullanım talimatları](/navigation.png)](/navigation.png)`,
     Error: "Bir şeyler yanlış gitti. Lütfen daha sonra tekrar deneyiniz.",
     Prompt: {
       History: (content: string) =>

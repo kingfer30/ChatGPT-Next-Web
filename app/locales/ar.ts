@@ -28,6 +28,7 @@ const ar: PartialLocaleType = {
       Stop: "توقف",
       Retry: "إعادة المحاولة",
       Delete: "حذف",
+      Shot2code: "لقطة شاشة لرمز HTML",
     },
     InputActions: {
       Stop: "توقف",
@@ -198,7 +199,7 @@ ${builtin} مدمجة، ${custom} تم تعريفها من قبل المستخد
   },
   Store: {
     DefaultTopic: "محادثة جديدة",
-    BotHello: "مرحبًا! كيف يمكنني مساعدتك اليوم؟",
+    BotHello: `# مرحبًا بك في AI Guoguo! \r\n- قام هذا الموقع بتنفيذ رسم dall-e والتعرف على الصور gpt-4-vision. يمكنك استخدامه عن طريق تبديل النموذج أدناه مباشرة. \r\n- Image إلى HTML: [Screenshot Conversion](https://shot2code.aichat199.com/ " تحويل لقطة الشاشة ")\r\n- شراء مفتاح API: [متجر AI Guoguo](https://shop.aichat199.com/ "AI Guoguo Store")\r\n- اتصل بنا: مجموعة QQ: 511903990\r\n- طريقة الاستخدام\r\n- [![تعليمات الاستخدام](/navigation.png)](/navigation.png)`,
     Error: "حدث خطأ ما، يرجى المحاولة مرة أخرى في وقت لاحق.",
     Prompt: {
       History: (content: string) => "هذا ملخص لسجل الدردشة كمراجعة: " + content,

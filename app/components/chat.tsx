@@ -650,6 +650,13 @@ export function ChatActions(props: {
       ) : (
         <></>
       )}
+      {showVisionMode || currentModel.indexOf("gpt-4-vision") >= 0 ? (
+        <a href="https://shot2code.aiguoguo199.com/" target="_blank">
+          {Locale.Chat.Actions.Shot2code}
+        </a>
+      ) : (
+        <></>
+      )}
 
       {currentModel.indexOf("dall-e-2") >= 0 ? (
         <ChatAction

@@ -21,6 +21,7 @@ const ko: PartialLocaleType = {
       Stop: "중지",
       Retry: "다시 시도",
       Delete: "삭제",
+      Shot2code: "HTML 코드 스크린샷",
     },
     Rename: "채팅 이름 변경",
     Typing: "입력 중...",
@@ -155,7 +156,7 @@ const ko: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "새 대화",
-    BotHello: "안녕하세요! 오늘 도움이 필요하신가요?",
+    BotHello: `# AI Guoguo에 오신 것을 환영합니다! \r\n- 본 사이트는 dall-e 드로잉과 gpt-4-vision 이미지 인식을 구현하였습니다. 아래 모델을 바로 전환하여 사용하실 수 있습니다. \r\n- 이미지를 HTML로: [스크린샷 변환](https://shot2code.aichat199.com/ " 스크린샷 변환 ")\r\n- 구매 API KEY: [AI Guoguo Store](https://shop.aichat199.com/ "AI Guoguo Store")\r\n- 문의: QQ 그룹: 511903990\r\n- 사용 방법\r\n- [![사용 지침](/navigation.png)](/navigation.png)`,
     Error: "문제가 발생했습니다. 나중에 다시 시도해주세요.",
     Prompt: {
       History: (content: string) =>
