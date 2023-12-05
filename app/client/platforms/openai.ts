@@ -313,6 +313,9 @@ export class ChatGPTApi implements LLMApi {
         const res = await fetch(chatPath, chatPayload);
         clearTimeout(requestTimeoutId);
 
+        if (res.status == 401) {
+          throw new Error(Locale.Error.Unauthorized);
+        }
         const resJson = await res.json();
         const message = this.extractMessage(resJson, modelConfig.model);
         options.onFinish(message);
