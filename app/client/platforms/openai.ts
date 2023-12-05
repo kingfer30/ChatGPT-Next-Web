@@ -63,7 +63,7 @@ export class ChatGPTApi implements LLMApi {
   }
 
   extractMessage(res: any, model = "") {
-    if (model.indexOf("dall-e") >= 0) {
+    if (model.indexOf("dall-e") >= 0 && !!res.data) {
       if (res.data.length == 0) {
         return "";
       }
