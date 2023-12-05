@@ -6,11 +6,11 @@ import { getClientConfig } from "./config/client";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI果果 | Next Web",
+  title: "AI Guo Guo | Next Web",
   description:
-    "ChatGPT Next Web二开的在线聊天, 智能画图识图,基于Reac,新增最新模型gpt-3.5-turbo-1106,gpt-4-1106-preview,dall-e-3,tts,gpt-4-vision-preview等",
+    "ChatGPT Next Web second version of online chat, intelligent drawing and image recognition, based on React, newly added latest models gpt-3.5-turbo-1106, gpt-4-1106-preview, dall-e-3, tts, gpt-4-vision -preview etc.",
   keywords:
-    "ChatGPT Next Web, React, 二开, 在线聊天, 画图, 绘图, 识图, Vision识图, 文心一言, One API, 中转",
+    "ChatGPT Next Web, React, ChatGPT, 120$, credits, RPM, TPM, gpt-3.5, gpt-4.0, dall-e-2, dall-e-3, dalle3, 1106-preview, vision-preview ,online chat, drawing, image recognition, Vision, One API, Transfer, Proxy, онлайн-чат, интеллектуальное рисование и распознавание изображений",
   viewport: {
     width: "device-width",
     initialScale: 1,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#151515" },
   ],
   appleWebApp: {
-    title: "AI果果 | Next Web",
+    title: "AI Guo Guo | Next Web",
     statusBarStyle: "default",
   },
 };
