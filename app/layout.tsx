@@ -43,7 +43,7 @@ export default function RootLayout({
           var _hmt = _hmt || [];
           (function() {
             var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?9d5bce12a50ed51d57f49fad1db66fb5";
+            hm.src = "https://hm.baidu.com/hm.js?b072ae92f999091645cd6407ba53d398";
             var s = document.getElementsByTagName("script")[0]; 
             s.parentNode.insertBefore(hm, s);
           })();
