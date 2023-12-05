@@ -155,7 +155,7 @@ const vi: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Cuộc trò chuyện mới",
-    BotHello: `# Chào mừng đến với AI Guoguo! \r\n- Trang web này đã triển khai bản vẽ dall-e và nhận dạng hình ảnh gpt-4-vision. Bạn có thể sử dụng nó bằng cách chuyển đổi mô hình ngay bên dưới. \r\n- Hình ảnh sang HTML: [Chuyển đổi ảnh chụp màn hình](https://shot2code.aichat199.com/ " Chuyển đổi ảnh chụp màn hình ")\r\n- Mua API KEY: [AI Guoguo Store](https://shop.aichat199.com/ "AI Guoguo Store")\r\n- Liên hệ với chúng tôi: Nhóm QQ: 511903990\r\n- Phương thức sử dụng\r\n- [![Hướng dẫn sử dụng](/navigation.png)](/navigation.png)`,
+    BotHello: `# Chào mừng đến với AI Guoguo! \r\n- Trang web này đã triển khai bản vẽ dall-e và nhận dạng hình ảnh gpt-4-vision. Bạn có thể sử dụng nó bằng cách chuyển đổi mô hình ngay bên dưới. \r\n- Hình ảnh sang HTML: [Chuyển đổi ảnh chụp màn hình](https://shot2code.aiguoguo199.com/ " Chuyển đổi ảnh chụp màn hình ")\r\n- Mua API KEY: [AI Guoguo Store](https://plati.market/seller/ai-guo-guo/1185183/ "AI Guoguo Store")\r\n- Liên hệ với chúng tôi: Nhóm TG: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Phương thức sử dụng\r\n- [![Hướng dẫn sử dụng](/ennavigation.png)](/ennavigation.png)`,
     Error: "Có lỗi xảy ra, vui lòng thử lại sau.",
     Prompt: {
       History: (content: string) =>

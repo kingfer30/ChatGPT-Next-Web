@@ -236,7 +236,7 @@ const bn: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "নতুন সংলাপ",
-    BotHello: `# AI Guoguo তে স্বাগতম! \r\n- এই সাইটটি dall-e অঙ্কন এবং gpt-4-ভিশন ইমেজ রিকগনিশন প্রয়োগ করেছে। আপনি সরাসরি নীচের মডেলটি স্যুইচ করে এটি ব্যবহার করতে পারেন। \r\n- Image to HTML: [Screenshot Conversion](https://shot2code.aichat199.com/ "স্ক্রিনশট রূপান্তর")\r\n- Purchase API KEY: [AI Guoguo Store](https://shop.aichat199.com/ "AI Guoguo Store")\r\n- আমাদের সাথে যোগাযোগ করুন: QQ গ্রুপ: 511903990\r\n- ব্যবহারের পদ্ধতি\r\n- [![ব্যবহারের জন্য নির্দেশাবলী](/navigation.png)](/navigation.png)`,
+    BotHello: `# AI Guoguo তে স্বাগতম! \r\n- এই সাইটটি dall-e অঙ্কন এবং gpt-4-ভিশন ইমেজ রিকগনিশন প্রয়োগ করেছে। আপনি সরাসরি নীচের মডেলটি স্যুইচ করে এটি ব্যবহার করতে পারেন। \r\n- Image to HTML: [Screenshot Conversion](https://shot2code.aiguoguo199.com/ "স্ক্রিনশট রূপান্তর")\r\n- Purchase API KEY: [AI Guoguo Store](https://plati.market/seller/ai-guo-guo/1185183/ "AI Guoguo Store")\r\n- আমাদের সাথে যোগাযোগ করুন: TG গ্রুপ: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- ব্যবহারের পদ্ধতি\r\n- [![ব্যবহারের জন্য নির্দেশাবলী](/ennavigation.png)](/ennavigation.png)`,
     Error: "কিছু নিয়ে ভুল হয়েছে, পরে আবার চেষ্টা করুন।",
     Prompt: {
       History: (content: string) =>

@@ -157,7 +157,7 @@ const cs: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Nová konverzace",
-    BotHello: `# Vítejte v AI Guoguo! \r\n- Tento web implementoval rozpoznávání obrázků dall-e drawing a gpt-4-vision. Můžete jej použít přepnutím modelu přímo níže. \r\n- Image to HTML: [Screenshot Conversion](https://shot2code.aichat199.com/ " Převod snímku obrazovky ")\r\n- KLÍČ API nákupu: [AI Guoguo Store](https://shop.aichat199.com/ "AI Guoguo Store")\r\n- Kontaktujte nás: QQ skupina: 511903990\r\n- Způsob použití\r\n- [![Návod k použití](/navigation.png)](/navigation.png)`,
+    BotHello: `# Vítejte v AI Guoguo! \r\n- Tento web implementoval rozpoznávání obrázků dall-e drawing a gpt-4-vision. Můžete jej použít přepnutím modelu přímo níže. \r\n- Image to HTML: [Screenshot Conversion](https://shot2code.aiguoguo199.com/ " Převod snímku obrazovky ")\r\n- KLÍČ API nákupu: [AI Guoguo Store](https://plati.market/seller/ai-guo-guo/1185183/ "AI Guoguo Store")\r\n- Kontaktujte nás: TG skupina: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Způsob použití\r\n- [![Návod k použití](/ennavigation.png)](/ennavigation.png)`,
     Error: "Něco se pokazilo, zkuste to prosím později.",
     Prompt: {
       History: (content: string) =>

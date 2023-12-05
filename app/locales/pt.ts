@@ -351,7 +351,7 @@ const pt: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Nova Conversa",
-    BotHello: `# Bem-vindo ao AI Guoguo! \r\n- Este site implementou o desenho dall-e e o reconhecimento de imagem gpt-4-vision. Você pode usá-lo alternando o modelo diretamente abaixo. \r\n- Imagem para HTML: [Conversão de captura de tela](https://shot2code.aichat199.com/ " Conversão de captura de tela ")\r\n- Compre CHAVE DE API: [Loja AI Guoguo](https://shop.aichat199.com/ "Loja AI Guoguo")\r\n- Contate-nos: Grupo QQ: 511903990\r\n- Método de uso\r\n- [![Instruções de uso](/navigation.png)](/navigation.png)`,
+    BotHello: `# Bem-vindo ao AI Guoguo! \r\n- Este site implementou o desenho dall-e e o reconhecimento de imagem gpt-4-vision. Você pode usá-lo alternando o modelo diretamente abaixo. \r\n- Imagem para HTML: [Conversão de captura de tela](https://shot2code.aiguoguo199.com/ " Conversão de captura de tela ")\r\n- Compre CHAVE DE API: [Loja AI Guoguo](https://plati.market/seller/ai-guo-guo/1185183/ "Loja AI Guoguo")\r\n- Contate-nos: Grupo TG: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Método de uso\r\n- [![Instruções de uso](/ennavigation.png)](/ennavigation.png)`,
     Error: "Algo deu errado, por favor tente novamente mais tarde.",
     Prompt: {
       History: (content: string) =>

@@ -155,15 +155,18 @@ export function SideBar(props: { className?: string }) {
     >
       <div className={styles["sidebar-header"]} data-tauri-drag-region>
         <div className={styles["sidebar-title"]} data-tauri-drag-region>
-          AI果果科技
+          AI Guo Guo
         </div>
         <div className={styles["sidebar-sub-title"]}>
-          <a href="https://shop.aichat199.com" target="_blank">
-            前往商城
+          <a
+            href="https://plati.market/itm/chatgpt-120-api-key-unofficial-transfer-interface/3809338"
+            target="_blank"
+          >
+            API Keys
           </a>{" "}
           |{" "}
-          <a href="https://platform.aichat199.com" target="_blank">
-            中转站
+          <a href="http://usage.aiguoguo199.com" target="_blank">
+            Balance
           </a>
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>

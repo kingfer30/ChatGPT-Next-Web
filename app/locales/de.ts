@@ -157,7 +157,7 @@ const de: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Neues Gespräch",
-    BotHello: `# Willkommen bei AI Guoguo! \r\n- Diese Seite hat Dall-E-Zeichnung und GPT-4-Vision-Bilderkennung implementiert. Sie können es verwenden, indem Sie das Modell direkt unten wechseln. \r\n- Bild in HTML: [Screenshot-Konvertierung](https://shot2code.aichat199.com/ " Screenshot-Konvertierung")\r\n- API-SCHLÜSSEL kaufen: [AI Guoguo Store](https://shop.aichat199.com/ "AI Guoguo Store")\r\n- Kontaktieren Sie uns: QQ-Gruppe: 511903990\r\n- Verwendungsmethode\r\n- [![Gebrauchsanweisung](/navigation.png)](/navigation.png)`,
+    BotHello: `# Willkommen bei AI Guoguo! \r\n- Diese Seite hat Dall-E-Zeichnung und GPT-4-Vision-Bilderkennung implementiert. Sie können es verwenden, indem Sie das Modell direkt unten wechseln. \r\n- Bild in HTML: [Screenshot-Konvertierung](https://shot2code.aiguoguo199.com/ " Screenshot-Konvertierung")\r\n- API-SCHLÜSSEL kaufen: [AI Guoguo Store](https://plati.market/seller/ai-guo-guo/1185183/ "AI Guoguo Store")\r\n- Kontaktieren Sie uns: TG-Gruppe: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Verwendungsmethode\r\n- [![Gebrauchsanweisung](/ennavigation.png)](/ennavigation.png)`,
     Error:
       "Etwas ist schief gelaufen, bitte versuchen Sie es später noch einmal.",
     Prompt: {
