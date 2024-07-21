@@ -212,7 +212,7 @@ const fr: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Nouvelle conversation",
-    BotHello: `# Bienvenue sur AI Guoguo! \r\n-  Ce site a réalisé le dessin dell-e, la reconnaissance d'image gpt-4-vision, et vous pouvez l'utiliser en changeant le modèle directement ci-dessous \r\n-  Image en HTML : [Transcodage de capture d'écran](https://shot2code.aiguoguo199.com/ "Transcodage de capture d'écran") \r\n-  Achat API KEY : [Magasin AI Guoguo](https://plati.market/seller/ai-guo-guo/1185183/ "Magasin AI Guoguo") \r\n-  Contactez-nous : Groupe TG : [aiguoguo](https://t.me/aichat199 "aiguoguo") \r\n-  Mode d'emploi \r\n-  [![Mode d'emploi](/ennavigation.png)](/ennavigation.png)`,
+    BotHello: `# Bienvenue sur AI Guoguo! \r\n-  Ce site a réalisé le dessin dell-e, la reconnaissance d'image gpt-4-vision, et vous pouvez l'utiliser en changeant le modèle directement ci-dessous \r\n-  Achat API KEY : [Magasin AI Guoguo](https://plati.market/seller/ai-guo-guo/1185183/ "Magasin AI Guoguo") \r\n-  Contactez-nous : Groupe TG : [aiguoguo](https://t.me/aichat199 "aiguoguo") \r\n-  Mode d'emploi \r\n-  [![Mode d'emploi](/ennavigation.png)](/ennavigation.png)`,
     Error: "Quelque chose s'est mal passé, veuillez réessayer plus tard.",
     Prompt: {
       History: (content: string) =>

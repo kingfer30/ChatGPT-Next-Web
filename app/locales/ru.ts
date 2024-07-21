@@ -162,7 +162,7 @@ const ru: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Новый разговор",
-    BotHello: `# Добро пожаловать в AI Guoguo! \r\n- На этом сайте реализовано рисование dall-e и распознавание изображений gpt-4-vision. Вы можете использовать его, переключив модель непосредственно ниже. \r\n- Изображение в HTML: [Преобразование скриншотов](https://shot2code.aiguoguo199.com/ " Преобразование скриншотов")\r\n- Купить КЛЮЧ API: [Магазин AI Guoguo](https://plati.market/seller/ai-guo-guo/1185183/ "Магазин AI Guoguo")\r\n- Свяжитесь с нами: группа TG: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Метод использования\r\n- [![Инструкция по использованию](/ennavigation.png)](/ennavigation.png)`,
+    BotHello: `# Добро пожаловать в AI Guoguo! \r\n- На этом сайте реализовано рисование dall-e и распознавание изображений gpt-4-vision. Вы можете использовать его, переключив модель непосредственно ниже. \r\n- Купить КЛЮЧ API: [Магазин AI Guoguo](https://plati.market/seller/ai-guo-guo/1185183/ "Магазин AI Guoguo")\r\n- Свяжитесь с нами: группа TG: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Метод использования\r\n- [![Инструкция по использованию](/ennavigation.png)](/ennavigation.png)`,
     Error: "Что-то пошло не так. Пожалуйста, попробуйте еще раз позже.",
     Prompt: {
       History: (content: string) =>

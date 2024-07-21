@@ -131,6 +131,42 @@ export const DEFAULT_MODELS = [
     available: true,
   },
   {
+    name: "gpt-4-0125-preview",
+    available: true,
+  },
+  {
+    name: "gpt-4-turbo-preview",
+    available: true,
+  },
+  {
+    name: "gpt-4-1106-vision-preview",
+    available: true,
+  },
+  {
+    name: "gpt-4-turbo-2024-04-09",
+    available: true,
+  },
+  {
+    name: "gpt-4-turbo",
+    available: true,
+  },
+  {
+    name: "gpt-4o",
+    available: true,
+  },
+  {
+    name: "gpt-4o-2024-05-13",
+    available: true,
+  },
+  {
+    name: "gpt-4o-mini",
+    available: true,
+  },
+  {
+    name: "gpt-4o-mini-2024-07-18",
+    available: true,
+  },
+  {
     name: "gpt-3.5-turbo",
     available: true,
   },
@@ -147,6 +183,10 @@ export const DEFAULT_MODELS = [
     available: true,
   },
   {
+    name: "gpt-3.5-turbo-0125",
+    available: true,
+  },
+  {
     name: "gpt-3.5-turbo-16k",
     available: true,
   },
@@ -160,6 +200,26 @@ export const DEFAULT_MODELS = [
   },
   {
     name: "dall-e-3",
+    available: true,
+  },
+  {
+    name: "claude-2.1",
+    available: true,
+  },
+  {
+    name: "claude-3-haiku-20240307",
+    available: true,
+  },
+  {
+    name: "claude-3-sonnet-20240229",
+    available: true,
+  },
+  {
+    name: "claude-3-5-sonnet-20240620",
+    available: true,
+  },
+  {
+    name: "claude-3-opus-20240229",
     available: true,
   },
 ] as const;

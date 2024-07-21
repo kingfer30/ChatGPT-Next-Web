@@ -158,7 +158,7 @@ const es: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Nueva conversación",
-    BotHello: `# ¡Bienvenido a AI Guoguo! \r\n- Este sitio ha implementado el dibujo dall-e y el reconocimiento de imágenes gpt-4-vision. Puede usarlo cambiando el modelo directamente debajo. \r\n- Imagen a HTML: [Conversión de captura de pantalla](https://shot2code.aiguoguo199.com/ " Conversión de captura de pantalla ")\r\n- Compra CLAVE API: [Tienda AI Guoguo](https://plati.market/seller/ai-guo-guo/1185183/ "Tienda AI Guoguo")\r\n- Contáctenos: Grupo TG: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Método de uso\r\n- [![Instrucciones de uso](/ennavigation.png)](/ennavigation.png)`,
+    BotHello: `# ¡Bienvenido a AI Guoguo! \r\n- Este sitio ha implementado el dibujo dall-e y el reconocimiento de imágenes gpt-4-vision. Puede usarlo cambiando el modelo directamente debajo. \r\n- Compra CLAVE API: [Tienda AI Guoguo](https://plati.market/seller/ai-guo-guo/1185183/ "Tienda AI Guoguo")\r\n- Contáctenos: Grupo TG: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Método de uso\r\n- [![Instrucciones de uso](/ennavigation.png)](/ennavigation.png)`,
     Error: "Algo salió mal, por favor intenta nuevamente más tarde.",
     Prompt: {
       History: (content: string) =>

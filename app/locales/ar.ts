@@ -199,7 +199,7 @@ ${builtin} مدمجة، ${custom} تم تعريفها من قبل المستخد
   },
   Store: {
     DefaultTopic: "محادثة جديدة",
-    BotHello: `# مرحبًا بك في AI Guoguo! \r\n- قام هذا الموقع بتنفيذ رسم dall-e والتعرف على الصور gpt-4-vision. يمكنك استخدامه عن طريق تبديل النموذج أدناه مباشرة. \r\n- Image إلى HTML: [Screenshot Conversion](https://shot2code.aiguoguo199.com/ " تحويل لقطة الشاشة ")\r\n- شراء مفتاح API: [متجر AI Guoguo](https://plati.market/seller/ai-guo-guo/1185183/ "AI Guoguo Store")\r\n- اتصل بنا: مجموعة TG: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- طريقة الاستخدام\r\n- [![تعليمات الاستخدام](/ennavigation.png)](/ennavigation.png)`,
+    BotHello: `# مرحبًا بك في AI Guoguo! \r\n- قام هذا الموقع بتنفيذ رسم dall-e والتعرف على الصور gpt-4-vision. يمكنك استخدامه عن طريق تبديل النموذج أدناه مباشرة. \r\n- شراء مفتاح API: [متجر AI Guoguo](https://plati.market/seller/ai-guo-guo/1185183/ "AI Guoguo Store")\r\n- اتصل بنا: مجموعة TG: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- طريقة الاستخدام\r\n- [![تعليمات الاستخدام](/ennavigation.png)](/ennavigation.png)`,
     Error: "حدث خطأ ما، يرجى المحاولة مرة أخرى في وقت لاحق.",
     Prompt: {
       History: (content: string) => "هذا ملخص لسجل الدردشة كمراجعة: " + content,

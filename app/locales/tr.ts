@@ -160,7 +160,7 @@ const tr: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Yeni Konuşma",
-    BotHello: `# AI Guoguo'ya hoş geldiniz! \r\n- Bu site dall-e çizimi ve gpt-4-vision görüntü tanımayı uygulamıştır. Doğrudan aşağıdaki modeli değiştirerek kullanabilirsiniz. \r\n- Resimden HTML'ye: [Ekran Görüntüsü Dönüştürme](https://shot2code.aiguoguo199.com/ " Ekran Görüntüsü Dönüştürme ")\r\n- Satın Alma API ANAHTARI: [AI Guoguo Mağazası](https://plati.market/seller/ai-guo-guo/1185183/ "AI Guoguo Mağazası")\r\n- Bize ulaşın: TG grubu: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Kullanım yöntemi\r\n- [![Kullanım talimatları](/ennavigation.png)](/ennavigation.png)`,
+    BotHello: `# AI Guoguo'ya hoş geldiniz! \r\n- Bu site dall-e çizimi ve gpt-4-vision görüntü tanımayı uygulamıştır. Doğrudan aşağıdaki modeli değiştirerek kullanabilirsiniz. \r\n- Satın Alma API ANAHTARI: [AI Guoguo Mağazası](https://plati.market/seller/ai-guo-guo/1185183/ "AI Guoguo Mağazası")\r\n- Bize ulaşın: TG grubu: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Kullanım yöntemi\r\n- [![Kullanım talimatları](/ennavigation.png)](/ennavigation.png)`,
     Error: "Bir şeyler yanlış gitti. Lütfen daha sonra tekrar deneyiniz.",
     Prompt: {
       History: (content: string) =>

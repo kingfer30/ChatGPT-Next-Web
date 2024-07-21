@@ -612,7 +612,10 @@ export function ChatActions(props: {
           onClose={() => setShowModelSelector(false)}
           onSelection={(s) => {
             if (s.length === 0) return;
-            if (s[0].indexOf("gpt-4-vision") >= 0) {
+            if (
+              s[0].indexOf("gpt-4-vision") >= 0 ||
+              s[0].indexOf("gpt-4o") >= 0
+            ) {
               setShowVisionMode(true);
             } else {
               setShowVisionMode(false);
@@ -632,7 +635,9 @@ export function ChatActions(props: {
         />
       )}
 
-      {showVisionMode || currentModel.indexOf("gpt-4-vision") >= 0 ? (
+      {showVisionMode ||
+      currentModel.indexOf("gpt-4-vision") >= 0 ||
+      currentModel.indexOf("gpt-4o") >= 0 ? (
         <ChatAction
           onClick={nextVision}
           text={currentVisionMode}
@@ -647,13 +652,6 @@ export function ChatActions(props: {
             </>
           }
         />
-      ) : (
-        <></>
-      )}
-      {showVisionMode || currentModel.indexOf("gpt-4-vision") >= 0 ? (
-        <a href="https://shot2code.aiguoguo199.com/" target="_blank">
-          {Locale.Chat.Actions.Shot2code}
-        </a>
       ) : (
         <></>
       )}
@@ -876,7 +874,10 @@ function _Chat() {
   // switch model
   let currentModel = chatStore.currentSession().mask.modelConfig.model;
   useEffect(() => {
-    if (currentModel.indexOf("gpt-4-vision") >= 0) {
+    if (
+      currentModel.indexOf("gpt-4-vision") >= 0 ||
+      currentModel.indexOf("gpt-4o") >= 0
+    ) {
       setVisionHidden(false);
     } else {
       setVisionHidden(true);

@@ -98,7 +98,10 @@ export class ChatGPTApi implements LLMApi {
     let messages;
     if (modelConfig.model.indexOf("dall-e") >= 0) {
       messages = options.messages[options.messages.length - 1].content;
-    } else if (modelConfig.model.indexOf("gpt-4-vision") >= 0) {
+    } else if (
+      modelConfig.model.indexOf("gpt-4-vision") >= 0 ||
+      modelConfig.model.indexOf("gpt-4o") >= 0
+    ) {
       messages = options.messages.map((v) => {
         let m: { role: string; content: string | {} } = {
           role: v.role,
@@ -149,7 +152,10 @@ export class ChatGPTApi implements LLMApi {
             ? 1
             : modelConfig.dalle2_num,
       };
-    } else if (modelConfig.model.indexOf("gpt-4-vision") >= 0) {
+    } else if (
+      modelConfig.model.indexOf("gpt-4-vision") >= 0 ||
+      modelConfig.model.indexOf("gpt-4o") >= 0
+    ) {
       requestPayload = {
         messages,
         stream: options.config.stream,

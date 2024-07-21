@@ -130,7 +130,7 @@ const no: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Ny samtale",
-    BotHello: `# Velkommen til AI Guoguo! \r\n- Dette nettstedet har implementert dall-e drawing og gpt-4-vision bildegjenkjenning. Du kan bruke det ved å bytte modell rett nedenfor. \r\n- Image to HTML: [Screenshot Conversion](https://shot2code.aiguoguo199.com/ " Skjermbildekonvertering ")\r\n- Purchase API NØKKEL: [AI Guoguo Store](https://plati.market/seller/ai-guo-guo/1185183/ "AI Guoguo Store")\r\n- Kontakt oss: TG-gruppe: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Usage method\r\n- [![Instruksjoner for bruk](/ennavigation.png)](/ennavigation.png)`,
+    BotHello: `# Velkommen til AI Guoguo! \r\n- Dette nettstedet har implementert dall-e drawing og gpt-4-vision bildegjenkjenning. Du kan bruke det ved å bytte modell rett nedenfor. \r\n- Purchase API NØKKEL: [AI Guoguo Store](https://plati.market/seller/ai-guo-guo/1185183/ "AI Guoguo Store")\r\n- Kontakt oss: TG-gruppe: [aiguoguo](https://t.me/aichat199 "aiguoguo")\r\n- Usage method\r\n- [![Instruksjoner for bruk](/ennavigation.png)](/ennavigation.png)`,
     Error: "Noe gikk galt, vennligst prøv igjen senere.",
     Prompt: {
       History: (content: string) =>
