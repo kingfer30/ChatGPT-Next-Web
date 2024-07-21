@@ -183,7 +183,7 @@ const jp: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "新しいチャット",
-    BotHello: `# AI Guoguo へようこそ! \r\n- このサイトには、dall-e 描画と gpt-4-vision 画像認識が実装されています。 直下で機種を切り替えてご利用いただけます。 \r\n- 画像から HTML へ: [スクリーンショット変換](https://shot2code.aichat199.com/ "スクリーンショット変換") \r\n- API キーの購入: [AI Guoguo ストア](https://shop.aichat199.com/ "AI Guoguo ストア") \r\n- お問い合わせ: QQ グループ: 511903990 \r\n- 使用方法
+    BotHello: `# AI Guoguo へようこそ! \r\n- このサイトには、dall-e 描画と gpt-4-vision 画像認識が実装されています。 直下で機種を切り替えてご利用いただけます。 \r\n- API キーの購入: [AI Guoguo ストア](https://shop.aichat199.com/ "AI Guoguo ストア") \r\n- お問い合わせ: QQ グループ: 511903990 \r\n- 使用方法
     [![説明書](/navigation.png)](/navigation.png)`,
     Error: "エラーが発生しました。しばらくしてからやり直してください。",
     Prompt: {

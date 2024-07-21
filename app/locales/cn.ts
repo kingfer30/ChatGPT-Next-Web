@@ -345,7 +345,7 @@ const cn = {
   },
   Store: {
     DefaultTopic: "新的聊天",
-    BotHello: `# 欢迎使用AI果果！ \r\n- 本站已实现dall-e画图、gpt-4-vision识图，直接下方切换模型即可使用 \r\n- 图片转HTML: [截图转码](https://shot2code.aichat199.com/ "截图转码") \r\n- 购买API KEY: [AI果果店铺](https://shop.aichat199.com/ "AI果果店铺") \r\n- 联系我们: QQ群: 511903990 \r\n- 使用方式
+    BotHello: `# 欢迎使用AI果果！ \r\n- 本站已实现dall-e画图、gpt-4-vision识图，直接下方切换模型即可使用 \r\n- 购买API KEY: [AI果果店铺](https://shop.aichat199.com/ "AI果果店铺") \r\n- 联系我们: QQ群: 511903990 \r\n- 使用方式
     [![使用说明](/navigation.png)](/navigation.png)`,
     Error: "出错了，稍后重试吧",
     Prompt: {

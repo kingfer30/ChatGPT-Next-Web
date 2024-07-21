@@ -350,7 +350,7 @@ const en: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "New Conversation",
-    BotHello: `# Welcome to AI Guoguo! \r\n- This site has implemented dall-e drawing and gpt-4-vision picture recognition. You can use it by switching the model directly below. \r\n- Image to HTML: [Screenshot Conversion](https://shot2code.aichat199.com/ "Screenshot Conversion") \r\n- Purchase API KEY: [AI Guoguo Store](https://shop.aichat199.com/ "AI Guoguo Store") \r\n- Contact us: QQ group: 511903990 \r\n- How to use
+    BotHello: `# Welcome to AI Guoguo! \r\n- This site has implemented dall-e drawing and gpt-4-vision picture recognition. You can use it by switching the model directly below. \r\n- Purchase API KEY: [AI Guoguo Store](https://shop.aichat199.com/ "AI Guoguo Store") \r\n- Contact us: QQ group: 511903990 \r\n- How to use
     [![Instructions](/navigation.png)](/navigation.png)`,
     Error: "Something went wrong, please try again later.",
     Prompt: {

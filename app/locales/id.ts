@@ -275,7 +275,7 @@ const id: PartialLocaleType = {
   },
   Store: {
     DefaultTopic: "Percakapan Baru",
-    BotHello: `# Selamat datang ke AI Guoguo! \r\n- Tapak ini telah melaksanakan lukisan dall-e dan pengecaman imej gpt-4-vision. Anda boleh menggunakannya dengan menukar model terus di bawah. \r\n- Imej kepada HTML: [Penukaran Tangkapan Skrin](https://shot2code.aichat199.com/ " Penukaran Tangkapan Skrin ")\r\n- Beli KUNCI API: [Kedai AI Guoguo](https://shop.aichat199.com/ "Kedai AI Guoguo")\r\n- Hubungi kami: Kumpulan QQ: 511903990\r\n- Kaedah penggunaan\r\n- [![Arahan penggunaan](/navigation.png)](/navigation.png)`,
+    BotHello: `# Selamat datang ke AI Guoguo! \r\n- Tapak ini telah melaksanakan lukisan dall-e dan pengecaman imej gpt-4-vision. Anda boleh menggunakannya dengan menukar model terus di bawah. \r\n- Beli KUNCI API: [Kedai AI Guoguo](https://shop.aichat199.com/ "Kedai AI Guoguo")\r\n- Hubungi kami: Kumpulan QQ: 511903990\r\n- Kaedah penggunaan\r\n- [![Arahan penggunaan](/navigation.png)](/navigation.png)`,
     Error: "Terjadi kesalahan, silakan coba lagi nanti.",
     Prompt: {
       History: (content: string) =>
