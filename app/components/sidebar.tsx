@@ -158,10 +158,7 @@ export function SideBar(props: { className?: string }) {
           AI Guo Guo
         </div>
         <div className={styles["sidebar-sub-title"]}>
-          <a
-            href="https://plati.market/itm/chatgpt-120-api-key-unofficial-transfer-interface/3809338"
-            target="_blank"
-          >
+          <a href="https://plati.market/itm/3999910" target="_blank">
             API Keys
           </a>{" "}
           |{" "}
