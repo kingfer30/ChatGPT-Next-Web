@@ -167,6 +167,22 @@ export const DEFAULT_MODELS = [
     available: true,
   },
   {
+    name: "o1-preview",
+    available: true,
+  },
+  {
+    name: "o1-preview-2024-09-12",
+    available: true,
+  },
+  {
+    name: "o1-mini",
+    available: true,
+  },
+  {
+    name: "o1-mini-2024-09-12",
+    available: true,
+  },
+  {
     name: "gpt-3.5-turbo",
     available: true,
   },
