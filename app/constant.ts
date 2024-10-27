@@ -99,6 +99,38 @@ export const KnowledgeCutOffDate: Record<string, string> = {
 
 export const DEFAULT_MODELS = [
   {
+    name: "o1-preview",
+    available: true,
+  },
+  {
+    name: "o1-preview-2024-09-12",
+    available: true,
+  },
+  {
+    name: "o1-mini",
+    available: true,
+  },
+  {
+    name: "o1-mini-2024-09-12",
+    available: true,
+  },
+  {
+    name: "gpt-4o",
+    available: true,
+  },
+  {
+    name: "gpt-4o-2024-05-13",
+    available: true,
+  },
+  {
+    name: "gpt-4o-mini",
+    available: true,
+  },
+  {
+    name: "gpt-4o-mini-2024-07-18",
+    available: true,
+  },
+  {
     name: "gpt-4",
     available: true,
   },
@@ -148,38 +180,6 @@ export const DEFAULT_MODELS = [
   },
   {
     name: "gpt-4-turbo",
-    available: true,
-  },
-  {
-    name: "gpt-4o",
-    available: true,
-  },
-  {
-    name: "gpt-4o-2024-05-13",
-    available: true,
-  },
-  {
-    name: "gpt-4o-mini",
-    available: true,
-  },
-  {
-    name: "gpt-4o-mini-2024-07-18",
-    available: true,
-  },
-  {
-    name: "o1-preview",
-    available: true,
-  },
-  {
-    name: "o1-preview-2024-09-12",
-    available: true,
-  },
-  {
-    name: "o1-mini",
-    available: true,
-  },
-  {
-    name: "o1-mini-2024-09-12",
     available: true,
   },
   {
