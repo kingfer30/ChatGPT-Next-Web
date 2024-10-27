@@ -95,13 +95,29 @@ export class ChatGPTApi implements LLMApi {
       },
     };
 
-    let messages;
+    let requestPayload;
+    const isO1 = options.config.model.startsWith("o1-");
     if (modelConfig.model.indexOf("dall-e") >= 0) {
-      messages = options.messages[options.messages.length - 1].content;
+      let prompt_msg = options.messages[options.messages.length - 1].content;
+      requestPayload = {
+        prompt: prompt_msg,
+        model: modelConfig.model,
+        quality: modelConfig.dalle3_quality,
+        size:
+          modelConfig.model.indexOf("dall-e-3") >= 0
+            ? modelConfig.dalle3_size
+            : modelConfig.dalle2_size,
+        n:
+          modelConfig.model.indexOf("dall-e-3") >= 0
+            ? 1
+            : modelConfig.dalle2_num,
+      };
     } else if (
       modelConfig.model.indexOf("gpt-4-vision") >= 0 ||
-      modelConfig.model.indexOf("gpt-4o") >= 0
+      modelConfig.model.indexOf("gpt-4o") >= 0 ||
+      modelConfig.model.indexOf("claude-3") >= 0
     ) {
+      let messages;
       messages = options.messages.map((v) => {
         let m: { role: string; content: string | {} } = {
           role: v.role,
@@ -130,32 +146,6 @@ export class ChatGPTApi implements LLMApi {
         }
         return m;
       });
-    } else {
-      messages = options.messages.map((v) => ({
-        role: v.role,
-        content: v.content,
-      }));
-    }
-
-    let requestPayload;
-    if (modelConfig.model.indexOf("dall-e") >= 0) {
-      requestPayload = {
-        prompt: messages,
-        model: modelConfig.model,
-        quality: modelConfig.dalle3_quality,
-        size:
-          modelConfig.model.indexOf("dall-e-3") >= 0
-            ? modelConfig.dalle3_size
-            : modelConfig.dalle2_size,
-        n:
-          modelConfig.model.indexOf("dall-e-3") >= 0
-            ? 1
-            : modelConfig.dalle2_num,
-      };
-    } else if (
-      modelConfig.model.indexOf("gpt-4-vision") >= 0 ||
-      modelConfig.model.indexOf("gpt-4o") >= 0
-    ) {
       requestPayload = {
         messages,
         stream: options.config.stream,
@@ -167,23 +157,27 @@ export class ChatGPTApi implements LLMApi {
         max_tokens: Math.max(modelConfig.max_tokens, 4096),
       };
     } else {
+      const messages: ChatOptions["messages"] = [];
+      for (const v of options.messages) {
+        if (!(isO1 && v.role === "system"))
+          messages.push({ role: v.role, content: v.content });
+      }
       requestPayload = {
         messages,
-        stream: options.config.stream,
+        stream: !isO1 ? options.config.stream : false,
         model: modelConfig.model,
-        temperature: modelConfig.temperature,
-        presence_penalty: modelConfig.presence_penalty,
-        frequency_penalty: modelConfig.frequency_penalty,
-        top_p: modelConfig.top_p,
-        // max_tokens: Math.max(modelConfig.max_tokens, 1024),
-        // Please do not ask me why not send max_tokens, no reason, this param is just shit, I dont want to explain anymore.
+        temperature: !isO1 ? modelConfig.temperature : 1,
+        presence_penalty: !isO1 ? modelConfig.presence_penalty : 0,
+        frequency_penalty: !isO1 ? modelConfig.frequency_penalty : 0,
+        top_p: !isO1 ? modelConfig.top_p : 1,
       };
     }
-
     console.log("[Request] openai payload: ", requestPayload);
 
     const shouldStream =
-      !!options.config.stream && modelConfig.model.indexOf("dall-e") < 0;
+      !!options.config.stream &&
+      modelConfig.model.indexOf("dall-e") < 0 &&
+      !isO1;
     const controller = new AbortController();
     options.onController?.(controller);
 
@@ -204,7 +198,9 @@ export class ChatGPTApi implements LLMApi {
       // make a fetch request
       const requestTimeoutId = setTimeout(
         () => controller.abort(),
-        REQUEST_TIMEOUT_MS,
+        modelConfig.model.indexOf("dall-e") > 0 || isO1
+          ? REQUEST_TIMEOUT_MS * 4
+          : REQUEST_TIMEOUT_MS,
       );
 
       if (shouldStream) {
