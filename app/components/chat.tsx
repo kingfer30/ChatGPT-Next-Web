@@ -614,7 +614,11 @@ export function ChatActions(props: {
             if (s.length === 0) return;
             if (
               s[0].indexOf("gpt-4-vision") >= 0 ||
-              s[0].indexOf("gpt-4o") >= 0
+              s[0].indexOf("gpt-4o") >= 0 ||
+              s[0].indexOf("gpt-4.5-preview") >= 0 ||
+              s[0] == "o1" ||
+              s[0] == "gemini-2.0-flash-exp-image-generation" ||
+              s[0].indexOf("claude-3") >= 0
             ) {
               setShowVisionMode(true);
             } else {
@@ -637,7 +641,11 @@ export function ChatActions(props: {
 
       {showVisionMode ||
       currentModel.indexOf("gpt-4-vision") >= 0 ||
-      currentModel.indexOf("gpt-4o") >= 0 ? (
+      currentModel.indexOf("gpt-4o") >= 0 ||
+      currentModel.indexOf("gpt-4.5-preview") >= 0 ||
+      currentModel == "o1" ||
+      currentModel == "gemini-2.0-flash-exp-image-generation" ||
+      currentModel.indexOf("claude-3") >= 0 ? (
         <ChatAction
           onClick={nextVision}
           text={currentVisionMode}
@@ -876,7 +884,11 @@ function _Chat() {
   useEffect(() => {
     if (
       currentModel.indexOf("gpt-4-vision") >= 0 ||
-      currentModel.indexOf("gpt-4o") >= 0
+      currentModel.indexOf("gpt-4o") >= 0 ||
+      currentModel.indexOf("gpt-4.5-preview") >= 0 ||
+      currentModel == "o1" ||
+      currentModel == "gemini-2.0-flash-exp-image-generation" ||
+      currentModel.indexOf("claude-3") >= 0
     ) {
       setVisionHidden(false);
     } else {
@@ -1551,16 +1563,6 @@ function _Chat() {
                   <div className={styles["chat-message-item"]}>
                     <Markdown
                       content={message.content}
-                      loading={
-                        (message.preview || message.streaming) &&
-                        message.content.length === 0 &&
-                        !isUser
-                      }
-                      onContextMenu={(e) => onRightClick(e, message)}
-                      onDoubleClickCapture={() => {
-                        if (!isMobileScreen) return;
-                        setUserInput(message.content);
-                      }}
                       fontSize={fontSize}
                       parentRef={scrollRef}
                       defaultShow={i >= messages.length - 6}

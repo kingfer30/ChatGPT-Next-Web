@@ -113,12 +113,18 @@ export class ChatGPTApi implements LLMApi {
             : modelConfig.dalle2_num,
       };
     } else if (
+      modelConfig.model == "gemini-2.0-flash-exp-image-generation" ||
       modelConfig.model.indexOf("gpt-4-vision") >= 0 ||
       modelConfig.model.indexOf("gpt-4o") >= 0 ||
+      modelConfig.model == "o1" ||
+      modelConfig.model.indexOf("gpt-4.5-preview") >= 0 ||
       modelConfig.model.indexOf("claude-3") >= 0
     ) {
       let messages;
       messages = options.messages.map((v) => {
+        if (v.SystemPrompt != undefined) {
+          return v.SystemPrompt;
+        }
         let m: { role: string; content: string | {} } = {
           role: v.role,
           content: v.content,
@@ -206,6 +212,7 @@ export class ChatGPTApi implements LLMApi {
       if (shouldStream) {
         let responseText = "";
         let remainText = "";
+        let systemPrompt: any;
         let finished = false;
 
         // animate response to make it looks smooth
@@ -233,7 +240,7 @@ export class ChatGPTApi implements LLMApi {
         const finish = () => {
           if (!finished) {
             finished = true;
-            options.onFinish(responseText + remainText);
+            options.onFinish(responseText + remainText, systemPrompt);
           }
         };
 
@@ -293,11 +300,25 @@ export class ChatGPTApi implements LLMApi {
                     content: string;
                   };
                 }>;
+                system_prompt?: {
+                  // 使用可选属性，因为后端可能不一定返回
+                  role: string;
+                  content: Array<{
+                    type: "text" | "image_url";
+                    text?: string; // 当 type=text 时存在
+                    image_url?: {
+                      // 当 type=image_url 时存在
+                      url: string;
+                      detail?: string;
+                    };
+                  }>;
+                };
               };
               const delta = json.choices[0]?.delta?.content;
               if (delta) {
                 remainText += delta;
               }
+              systemPrompt = json.system_prompt || null;
             } catch (e) {
               console.error("[Request] parse error", text);
             }

@@ -99,6 +99,22 @@ export const KnowledgeCutOffDate: Record<string, string> = {
 
 export const DEFAULT_MODELS = [
   {
+    name: "gemini-2.0-flash-exp-image-generation",
+    available: true,
+  },
+  {
+    name: "gpt-4.5-preview-2025-02-27",
+    available: true,
+  },
+  {
+    name: "o3-mini",
+    available: true,
+  },
+  {
+    name: "o1",
+    available: true,
+  },
+  {
     name: "o1-preview",
     available: true,
   },
@@ -236,6 +252,26 @@ export const DEFAULT_MODELS = [
   },
   {
     name: "claude-3-opus-20240229",
+    available: true,
+  },
+  {
+    name: "gemini-1.5-flash",
+    available: true,
+  },
+  {
+    name: "gemini-2.0-flash",
+    available: true,
+  },
+  {
+    name: "gemini-2.0-flash-thinking-exp",
+    available: true,
+  },
+  {
+    name: "gemini-2.0-pro-exp-02-05",
+    available: true,
+  },
+  {
+    name: "gemini-2.0-flash-lite-preview-02-05",
     available: true,
   },
 ] as const;
