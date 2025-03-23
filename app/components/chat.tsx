@@ -1563,6 +1563,16 @@ function _Chat() {
                   <div className={styles["chat-message-item"]}>
                     <Markdown
                       content={message.content}
+                      loading={
+                        (message.preview || message.streaming) &&
+                        message.content.length === 0 &&
+                        !isUser
+                      }
+                      onContextMenu={(e) => onRightClick(e, message)}
+                      onDoubleClickCapture={() => {
+                        if (!isMobileScreen) return;
+                        setUserInput(message.content);
+                      }}
                       fontSize={fontSize}
                       parentRef={scrollRef}
                       defaultShow={i >= messages.length - 6}
