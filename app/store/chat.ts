@@ -316,10 +316,16 @@ export const useChatStore = createPersistStore(
               session.messages = session.messages.concat();
             });
           },
-          onFinish(message) {
+          onFinish(message, system_p) {
             botMessage.streaming = false;
             if (message) {
               botMessage.content = message;
+              if (system_p) {
+                botMessage.SystemPrompt = system_p;
+                get().updateCurrentSession((session) => {
+                  session.messages = session.messages.concat();
+                });
+              }
               get().onNewMessage(botMessage);
             }
             ChatControllerPool.remove(session.id, botMessage.id);
@@ -486,7 +492,11 @@ export const useChatStore = createPersistStore(
           session.topic === DEFAULT_TOPIC &&
           countMessages(messages) >= SUMMARIZE_MIN_LEN
         ) {
-          if (session.mask.modelConfig.model.indexOf("dall-e") >= 0) {
+          if (
+            session.mask.modelConfig.model.indexOf("dall-e") >= 0 ||
+            session.mask.modelConfig.model ==
+              "gemini-2.0-flash-exp-image-generation"
+          ) {
             get().updateCurrentSession(
               (session) => (session.topic = Locale.Store.Prompt.Draw),
             );
@@ -545,7 +555,12 @@ export const useChatStore = createPersistStore(
 
         if (
           historyMsgLength > modelConfig.compressMessageLengthThreshold &&
-          modelConfig.sendMemory
+          modelConfig.sendMemory &&
+          !(
+            session.mask.modelConfig.model.indexOf("dall-e") >= 0 ||
+            session.mask.modelConfig.model ==
+              "gemini-2.0-flash-exp-image-generation"
+          )
         ) {
           api.llm.chat({
             messages: toBeSummarizedMsgs.concat(

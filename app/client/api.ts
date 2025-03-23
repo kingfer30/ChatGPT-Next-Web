@@ -13,6 +13,7 @@ export interface RequestMessage {
   role: MessageRole;
   content: string;
   ImageContent?: string[];
+  SystemPrompt?: any;
 }
 
 export interface LLMConfig {
@@ -29,7 +30,7 @@ export interface ChatOptions {
   config: LLMConfig;
 
   onUpdate?: (message: string, chunk: string) => void;
-  onFinish: (message: string) => void;
+  onFinish: (message: string, system_p?: any) => void;
   onError?: (err: Error) => void;
   onController?: (controller: AbortController) => void;
 }
